@@ -1,4 +1,4 @@
-﻿namespace Mapbox.Examples
+﻿namespace LocationBasedGame
 {
 	using Mapbox.Unity.Location;
 	using Mapbox.Unity.Map;

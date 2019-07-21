@@ -6,14 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCollisionScript : MonoBehaviour
 {
-    public Canvas oreUI;
-    public Button button;
+    private static Canvas oreUI;
+    private Button enterButton;
     // Start is called before the first frame update
     void Start()
     {
-        button.gameObject.SetActive(false);
+        if (GameObject.Find("EnterButton") != null)
+        {
+            enterButton = GameObject.Find("EnterButton").GetComponent<Button>();
+        }
+        if (GameObject.Find("OreUI") != null)
+        {
+            oreUI = GameObject.Find("OreUI").GetComponent<Canvas>();
+        }
         oreUI.enabled = false;
-        Debug.Log("STARTED PCS");
     }
 
     // Update is called once per frame
@@ -23,12 +29,12 @@ public class PlayerCollisionScript : MonoBehaviour
 
     void OnCollisionStay(Collision collision)
     {
-        button.gameObject.SetActive(true);
+        enterButton.gameObject.SetActive(true);
     }
 
     void OnCollisionExit(Collision other)
     {
-        button.gameObject.SetActive(false);
+        enterButton.gameObject.SetActive(false);
         if (oreUI.enabled)
         {
             toggleCanvas();
@@ -37,7 +43,6 @@ public class PlayerCollisionScript : MonoBehaviour
 
     public void toggleCanvas()
     {
-        Debug.Log(oreUI.enabled);
         if (oreUI.enabled)
         {
             oreUI.enabled = false;
@@ -47,4 +52,5 @@ public class PlayerCollisionScript : MonoBehaviour
             oreUI.enabled = true;
         }
     }
+
 }
