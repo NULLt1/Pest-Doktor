@@ -306,6 +306,9 @@
  <Reference Include="UnityEditor.Purchasing">
  <HintPath>C:/Users/marvi/git/GameJamSS19/LocationBasedGame/Library/PackageCache/com.unity.purchasing@2.0.6/Editor/UnityEditor.Purchasing.dll</HintPath>
  </Reference>
+ <Reference Include="Mono.Data.Sqlite">
+ <HintPath>C:/Users/marvi/git/GameJamSS19/LocationBasedGame/Assets/Mapbox/Core/Plugins/sqlite/Mono.Data.Sqlite.dll</HintPath>
+ </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.10f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
  </Reference>
