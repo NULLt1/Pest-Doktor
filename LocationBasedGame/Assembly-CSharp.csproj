@@ -592,6 +592,7 @@
      <Compile Include="Assets\Scripts\PlayerNetwork.cs" />
      <Compile Include="Assets\Scripts\POICollisionScript.cs" />
      <None Include="Assets\Mapbox\Unity\Location\ExampleGpsTraces\LocationProviderAndroidNative.txt" />
+     <None Include="Assets\Mapbox\Unity\Location\ExampleGpsTraces\ibau.txt" />
      <None Include="Assets\Mapbox\Unity\Location\ExampleGpsTraces\Helsinki.txt" />
      <None Include="Assets\Photon\PhotonUnityNetworking\link.xml" />
      <None Include="Assets\Mapbox\Unity\Location\ExampleGpsTraces\Furtwangen.txt" />

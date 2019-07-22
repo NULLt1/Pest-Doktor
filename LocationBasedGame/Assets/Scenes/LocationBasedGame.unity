@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -534,7 +534,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &314776561
 RectTransform:
   m_ObjectHideFlags: 0
@@ -666,7 +666,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &328080615
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1788,7 +1788,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _locationLogFile
       value: 
-      objectReference: {fileID: 4900000, guid: 78c5f3727cc0eb048944979f386e22dd, type: 3}
+      objectReference: {fileID: 4900000, guid: 325188129b6b3a740a82cfe22b7496b0, type: 3}
     - target: {fileID: 8636804941509925134, guid: 35ce2bb4caba9434db5e656796b632b1,
         type: 3}
       propertyPath: viewIdField
@@ -1900,6 +1900,8 @@ MonoBehaviour:
   - 48.05901538, 8.20003867
   - 48.05868552, 8.20201814
   - 48.05001885, 8.2105422
+  - 48.04993638, 8.21077287
+  - 48.04978218, 8.2111913
   _spawnScale: 2
   _markerPrefab: {fileID: 1209540745484720, guid: 2650c4cd8780cd641b9fc4aab1dc8b02,
     type: 3}

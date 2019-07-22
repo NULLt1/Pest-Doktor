@@ -29,12 +29,21 @@ public class PlayerCollisionScript : MonoBehaviour
 
     void OnCollisionStay(Collision collision)
     {
-        enterButton.gameObject.SetActive(true);
+        //enterButton.gameObject.SetActive(true);
+        if (Input.GetMouseButtonDown(0) || Input.touchCount > 0)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                toggleCanvas();
+            }
+        }
     }
 
     void OnCollisionExit(Collision other)
     {
-        enterButton.gameObject.SetActive(false);
+        //enterButton.gameObject.SetActive(false);
         if (oreUI.enabled)
         {
             toggleCanvas();
