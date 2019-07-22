@@ -9,7 +9,6 @@ namespace LocationBasedGame
     {
         private void Awake()
         {
-
             if (!photonView.IsMine && this.GetComponent<ImmediatePositionWithLocationProvider>() != null)
                 Destroy(this.GetComponent<ImmediatePositionWithLocationProvider>());
 

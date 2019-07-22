@@ -73,7 +73,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 494}
   m_MaxSize: {x: 10002, y: 14044}
   vertical: 1
-  controlID: 126
+  controlID: 31
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -95,13 +95,13 @@ MonoBehaviour:
     height: 457
   m_MinSize: {x: 204, y: 222}
   m_MaxSize: {x: 4004, y: 4022}
-  m_ActualView: {fileID: 14}
+  m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
   - {fileID: 14}
   - {fileID: 13}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_MinSize: {x: 204, y: 344}
   m_MaxSize: {x: 4004, y: 8044}
   vertical: 1
-  controlID: 64
+  controlID: 56
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -271,7 +271,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 494}
   m_MaxSize: {x: 18008, y: 14044}
   vertical: 0
-  controlID: 125
+  controlID: 55
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -395,9 +395,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.24306141, y: 0.22085124, z: -0.056937154, w: -0.94281715}
   m_Size:
-    m_Target: 36.163837
+    m_Target: 22
     speed: 2
-    m_Value: 36.163837
+    m_Value: 22
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -452,17 +452,17 @@ MonoBehaviour:
   m_MaximizeOnPlay: 0
   m_Gizmos: 0
   m_Stats: 0
-  m_SelectedSizes: 06000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_SelectedSizes: 06000000000000000000000001000000000000000000000000000000000000000000000000000000
   m_TargetDisplay: 0
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -520.5
-    m_HBaseRangeMax: 520.5
-    m_VBaseRangeMin: -210.5
-    m_VBaseRangeMax: 210.5
+    m_HBaseRangeMin: -240
+    m_HBaseRangeMax: 240
+    m_VBaseRangeMin: -400
+    m_VBaseRangeMax: 400
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -471,7 +471,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -482,7 +482,7 @@ MonoBehaviour:
       y: 17
       width: 1041
       height: 421
-    m_Scale: {x: 1, y: 1}
+    m_Scale: {x: 0.52625, y: 0.52625}
     m_Translation: {x: 520.5, y: 210.5}
     m_MarginLeft: 0
     m_MarginRight: 0
@@ -490,18 +490,18 @@ MonoBehaviour:
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -520.5
-      y: -210.5
-      width: 1041
-      height: 421
+      x: -989.0736
+      y: -400
+      width: 1978.1472
+      height: 800
     m_MinimalGUI: 1
-  m_defaultScale: 1
+  m_defaultScale: 0.52625
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 0
   m_LastWindowPixelSize: {x: 1041, y: 438}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
-  m_LowResolutionForAspectRatios: 01000000000000000100
+  m_LowResolutionForAspectRatios: 01000001000000000100
   m_XRRenderMode: 0
 --- !u!114 &16
 MonoBehaviour:
@@ -567,20 +567,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Photon/PhotonUnityNetworking/Demos/DemoAsteroids/Scripts/Game
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Photon/PhotonUnityNetworking/Demos/DemoAsteroids/Scripts/Game
-  m_LastFoldersGridSize: -1
+  - Assets/Scripts
+  m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\marvi\git\GameJamSS19\LocationBasedGame
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 879}
-    m_SelectedIDs: 364c0000
-    m_LastClickedID: 19510
-    m_ExpandedIDs: 0000000062490000564a0000344b0000d44b0000ea4b0000fc4b0000784c0000804f0000864f00002c500000e050000006510000785200002053000062550000a6580000a8580000aa58000000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 56370000
+    m_LastClickedID: 14166
+    m_ExpandedIDs: 000000007c34000070350000a237000010390000b63a0000bc3a0000043b0000643b0000a23b0000d63b0000183c0000423c0000ba3d0000643e0000aa4000008a4600008c4600008e46000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -596,7 +596,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 2}
+      m_ClientGUIView: {fileID: 4}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -608,7 +608,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000062490000564a0000d44b0000ea4b0000fc4b0000804f0000864f00002c500000e05000007852000020530000a6580000a8580000aa580000
+    m_ExpandedIDs: 000000007c34000070350000fc3600001237000010390000b63a0000bc3a0000043b0000643b0000a23b0000d63b0000183c0000423c0000ba3d0000643e00007c3f0000aa4000008a4600008c4600008e460000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -636,21 +636,21 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: e6340000e425010054320000a2330000a8350000703f0600e2330000763f0600643f0600621e00008c1e0000fa23000016230000cc220000442300009621000042210000d222000048210000e01e00007a200000ba1c00008c230000dc1e0000b4210000a62200004c490000a83d00005c2d00004a11000026080000060d00006e05000014240000e82200002e0d0000fe080000540d0000e80900009e110000000000000a090000be1c00003a2200002a220000
+    m_ExpandedInstanceIDs: e6340000e425010054320000a2330000a8350000703f0600e2330000763f0600643f0600621e00008c1e0000fa23000016230000cc220000442300009621000042210000d222000048210000e01e00007a200000ba1c00008c230000dc1e0000b4210000a62200004c490000a83d00005c2d00004a11000026080000060d00006e05000014240000e82200002e0d0000fe080000540d0000e80900009e1100000a090000be1c00003a2200002a22000000000000503d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Steinhaufen
-      m_OriginalName: Steinhaufen
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 21624
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 2}
     m_CreateAssetUtility:
@@ -691,24 +691,24 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 4cbeffff7ebeffff74c1ffff7ac1ffff22c9ffff58c9ffff62c9ffff66c9ffffe8cdffff1cceffff12d1ffff1adaffffc2deffff4af5ffff70f5ffffd0f5ffffcc560000e45600003a6c0000786c00006c80000088800000
+      scrollPos: {x: 0, y: 21}
+      m_SelectedIDs: c60d0100
+      m_LastClickedID: 69062
+      m_ExpandedIDs: 56fffeff601effff961effffa81effff161fffff7a25ffff3026ffff422effffaa3affff946fffffb6ddffff4ee3ffff84e7ffffa8f0ffff6af9ffff06fbffff2cfbffff8cfbffffb84300001844000030440000bab7000002b80000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Inventory
+        m_OriginalName: Inventory
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -8216
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 6}
       m_SearchString: 

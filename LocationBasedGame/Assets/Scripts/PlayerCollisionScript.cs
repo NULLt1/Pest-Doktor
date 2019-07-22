@@ -30,13 +30,16 @@ public class PlayerCollisionScript : MonoBehaviour
     void OnCollisionStay(Collision collision)
     {
         //enterButton.gameObject.SetActive(true);
-        if (Input.GetMouseButtonDown(0) || Input.touchCount > 0)
+        if ((Input.GetMouseButtonDown(0) || Input.touchCount > 0) && oreUI.enabled == false)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                toggleCanvas();
+                if (hit.transform.gameObject.GetComponent<POICollisionScript>().active)
+                {
+                    toggleCanvas();
+                }
             }
         }
     }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class POICollisionScript : MonoBehaviour
 {
     public GameObject collisionRing;
+    public bool active { get; set; }
 
     // Start is called before the first frame update
     void Start()
@@ -25,12 +26,14 @@ public class POICollisionScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            active=true;
             collisionRing.SetActive(true);
         }
     }
 
     void OnCollisionExit(Collision other)
     {
+        active=false;
         collisionRing.SetActive(false);
     }
 }
