@@ -8,6 +8,7 @@ public class PlayerCollisionScript : MonoBehaviour
 {
     private static Canvas oreUI;
     private Button enterButton;
+    private ReagentButtonSpawn reagentButtonSpawn;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,7 @@ public class PlayerCollisionScript : MonoBehaviour
         if (GameObject.Find("OreUI") != null)
         {
             oreUI = GameObject.Find("OreUI").GetComponent<Canvas>();
+            reagentButtonSpawn = GameObject.Find("OreUI").GetComponent<ReagentButtonSpawn>();
         }
         oreUI.enabled = false;
     }
@@ -61,6 +63,7 @@ public class PlayerCollisionScript : MonoBehaviour
         }
         else
         {
+            reagentButtonSpawn.spawnReagentButtons();
             oreUI.enabled = true;
         }
     }

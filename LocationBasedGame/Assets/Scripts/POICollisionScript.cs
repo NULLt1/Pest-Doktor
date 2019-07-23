@@ -26,14 +26,16 @@ public class POICollisionScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            active=true;
+            this.gameObject.tag = "Collision";
+            active = true;
             collisionRing.SetActive(true);
         }
     }
 
     void OnCollisionExit(Collision other)
     {
-        active=false;
+        this.gameObject.tag = "Untagged";
+        active = false;
         collisionRing.SetActive(false);
     }
 }

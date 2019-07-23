@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 8853643183373580191}
   - component: {fileID: 4466483133315898915}
   - component: {fileID: 592328368}
+  - component: {fileID: 5847446356166815012}
   m_Layer: 0
   m_Name: Reagent
-  m_TagString: Ore
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,6 +78,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionRing: {fileID: 3674083597120806008, guid: 34a923ca4eb50e241b736946c72372ca,
     type: 3}
+--- !u!114 &5847446356166815012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209540745484720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295eda0043e987d45bed778e625df288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomItems: 
 --- !u!1001 &2750611814375701750
 PrefabInstance:
   m_ObjectHideFlags: 0
