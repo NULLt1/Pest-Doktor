@@ -459,6 +459,7 @@
      <Compile Include="Assets\Scripts\Inventory.cs" />
      <Compile Include="Assets\Scripts\Item.cs" />
      <Compile Include="Assets\Scripts\ItemDatabase.cs" />
+     <Compile Include="Assets\Scripts\ItemEntity.cs" />
      <Compile Include="Assets\Scripts\ItemProvider.cs" />
      <Compile Include="Assets\Scripts\NetworkController.cs" />
      <Compile Include="Assets\Scripts\PhotonRPC.cs" />
@@ -467,6 +468,9 @@
      <Compile Include="Assets\Scripts\PlayerNetwork.cs" />
      <Compile Include="Assets\Scripts\POICollisionScript.cs" />
      <Compile Include="Assets\Scripts\SaveGame.cs" />
+     <Compile Include="Assets\Scripts\SavegameDatabase.cs" />
+     <Compile Include="Assets\Scripts\SavegameEntity.cs" />
+     <Compile Include="Assets\Scripts\SqliteHelper.cs" />
      <None Include="Assets\Mapbox\Unity\Location\ExampleGpsTraces\LocationProviderAndroidNative.txt" />
      <None Include="Assets\Mapbox\Unity\Location\ExampleGpsTraces\ibau.txt" />
      <None Include="Assets\Mapbox\Unity\Location\ExampleGpsTraces\Helsinki.txt" />
@@ -694,6 +698,9 @@
  <Reference Include="Mapbox.VectorTile.VectorTileReader">
  <HintPath>C:/Users/marvi/git/GameJamSS19/LocationBasedGame/Assets/Mapbox/Core/Plugins/Mapbox/vector-tile-cs/net46/Mapbox.VectorTile.VectorTileReader.dll</HintPath>
  </Reference>
+ <Reference Include="Mono.Data.Sqlite">
+ <HintPath>C:/Users/marvi/git/GameJamSS19/LocationBasedGame/Assets/Mapbox/Core/Plugins/sqlite/Mono.Data.Sqlite.dll</HintPath>
+ </Reference>
  <Reference Include="Mapbox.IO.Compression">
  <HintPath>C:/Users/marvi/git/GameJamSS19/LocationBasedGame/Assets/Mapbox/Core/Plugins/ThirdParty/Mapbox.IO.Compression/net35/Mapbox.IO.Compression.dll</HintPath>
  </Reference>
@@ -714,9 +721,6 @@
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
  <HintPath>C:/Users/marvi/git/GameJamSS19/LocationBasedGame/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
- </Reference>
- <Reference Include="Mono.Data.Sqlite">
- <HintPath>C:/Users/marvi/git/GameJamSS19/LocationBasedGame/Assets/Mapbox/Core/Plugins/sqlite/Mono.Data.Sqlite.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.10f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

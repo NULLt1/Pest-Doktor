@@ -270,6 +270,9 @@
  <Reference Include="Mapbox.VectorTile.VectorTileReader">
  <HintPath>C:/Users/marvi/git/GameJamSS19/LocationBasedGame/Assets/Mapbox/Core/Plugins/Mapbox/vector-tile-cs/net46/Mapbox.VectorTile.VectorTileReader.dll</HintPath>
  </Reference>
+ <Reference Include="Mono.Data.Sqlite">
+ <HintPath>C:/Users/marvi/git/GameJamSS19/LocationBasedGame/Assets/Mapbox/Core/Plugins/sqlite/Mono.Data.Sqlite.dll</HintPath>
+ </Reference>
  <Reference Include="Mapbox.IO.Compression">
  <HintPath>C:/Users/marvi/git/GameJamSS19/LocationBasedGame/Assets/Mapbox/Core/Plugins/ThirdParty/Mapbox.IO.Compression/net35/Mapbox.IO.Compression.dll</HintPath>
  </Reference>
@@ -296,9 +299,6 @@
  </Reference>
  <Reference Include="UnityEditor.Purchasing">
  <HintPath>C:/Users/marvi/git/GameJamSS19/LocationBasedGame/Library/PackageCache/com.unity.purchasing@2.0.6/Editor/UnityEditor.Purchasing.dll</HintPath>
- </Reference>
- <Reference Include="Mono.Data.Sqlite">
- <HintPath>C:/Users/marvi/git/GameJamSS19/LocationBasedGame/Assets/Mapbox/Core/Plugins/sqlite/Mono.Data.Sqlite.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.10f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

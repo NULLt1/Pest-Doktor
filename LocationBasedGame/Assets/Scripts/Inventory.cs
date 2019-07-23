@@ -144,7 +144,6 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(int id)
     {
-        Debug.Log(itemProvider.items[id].itemName);
         for (int i = 0; i < inventory.Count; i++)
         {
             if (inventory[i].itemName == null)

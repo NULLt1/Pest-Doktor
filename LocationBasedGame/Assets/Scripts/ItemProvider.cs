@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class ItemDatabase : MonoBehaviour
+public class ItemProvider : MonoBehaviour
 {
     public List<Item> items = new List<Item>();
     //Hier werden die Gegenstände definiert. Hart.

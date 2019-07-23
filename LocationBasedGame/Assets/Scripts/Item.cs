@@ -21,7 +21,6 @@ public class Item
         this.itemLatinName = itemLatinName;
         this.itemDescription = itemDescription;
         this.itemIcon = Resources.Load<Texture2D>("Grafics/reagent");
-        Debug.Log(Resources.Load<Texture2D>("Grafics/reagent"));
     }
     public Item()
     {

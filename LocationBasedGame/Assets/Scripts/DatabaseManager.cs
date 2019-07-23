@@ -2,111 +2,116 @@
 using System.Data;
 using Mono.Data.Sqlite;
 using System.IO;
+using DataBank;
+using System.Collections;
+using System.Collections.Generic;
 
-public class DatabaseManager : MonoBehaviour {
-	private string saveGameTableQuery =  "CREATE TABLE IF NOT EXISTS saveGame (id AUTOINCREMENT PRIMARY KEY, level INTEGER, amountAlraune INTEGER, amountTollkirsche INTEGER, amountWachholder INTEGER, amountFliegenpilz INTEGER, amountMorchel INTEGER, amountKiefernschwamm INTEGER)";
-	private string itemTableQuery = "CREATE TABLE IF NOT EXISTS item (id AUTOINCREMENT PRIMARY KEY, name CHAR(25), latinName CHAR(50), description TEXT)";
-	
-	private String alrauneString="INSERT INTO item (name, latinName, description) VALUES ('Alraune' , 'Mandragora' , 'Heilpflanze' )";
-	private String tollkirschString;
-	private String wachholderString;
-	private String fliegenpilzString;
-	private String morchelString;
-	private String kiefernschwammString;
+public class DatabaseManager : MonoBehaviour
+{
+    public bool resetDatabaseFlag;
 
-	public boolean deleteDatabase;
-	public boolean initializeValues;
+    // Use this for initialization
+    void Start()
+    {
+        if (resetDatabaseFlag == true)
+        {
+            resetDatabase();
+        }
+        //Fetch All Data
+        ItemDatabase itemDatabase1 = new ItemDatabase();
+        System.Data.IDataReader reader = itemDatabase1.getAllData();
 
-	// Use this for initialization
-	void Start () {
+        int fieldCount = reader.FieldCount;
+        List<ItemEntity> myList = new List<ItemEntity>();
+        while (reader.Read())
+        {
+            ItemEntity item = new ItemEntity(reader[0].ToString(),
+                                    reader[1].ToString(),
+                                    reader[2].ToString(),
+                                    reader[3].ToString());
+            Debug.Log("id: " + item._id);
+            myList.Add(item);
+        }
+        itemDatabase1.close();
 
-		// Create database
-		string connection = "URI=file:" + Application.persistentDataPath + "/" + "Game";
-		if(deleteDatabase==true){
+        SavegameDatabase savegameDatabase = new SavegameDatabase();
+        System.Data.IDataReader sreader = savegameDatabase.getAllData();
 
-		}
-		CreateTables();
-		if(initializeItems==true){
-			InsertItems();
-		}
-		//FillWithDefaultValues();
-		// Open connection
-		IDbConnection dbcon = new SqliteConnection(connection);
-		dbcon.Open();
-		IDbCommand dropDatabase;
-		dropDatabase = dbcon.CreateCommand();		
-		dropDatabase.CommandText = "DROP TABLE my_table";
-		dropDatabase.ExecuteReader();
-		// Create table
-		IDbCommand dbcmd;
-		dbcmd = dbcon.CreateCommand();
-		string q_createTable = "CREATE TABLE IF NOT EXISTS my_table (id INTEGER PRIMARY KEY, val INTEGER )";
-		
-		dbcmd.CommandText = q_createTable;
-		dbcmd.ExecuteReader();
+        int sfieldCount = sreader.FieldCount;
+        List<SavegameEntity> smyList = new List<SavegameEntity>();
+        while (sreader.Read())
+        {
+            SavegameEntity savegame = new SavegameEntity(sreader[0].ToString(),
+                                    sreader[1].ToString(),
+                                    sreader[2].ToString(),
+                                    sreader[3].ToString(),
+                                    sreader[4].ToString(),
+                                    sreader[5].ToString(),
+                                    sreader[6].ToString(),
+                                    sreader[7].ToString(),
+                                    sreader[8].ToString(),
+                                    sreader[9].ToString());
+            Debug.Log("id: " + savegame._id);
+            smyList.Add(savegame);
+        }
+        itemDatabase1.close();
+    }
 
-		// Insert values in table
-		IDbCommand cmnd = dbcon.CreateCommand();
-		cmnd.CommandText = "INSERT INTO my_table (id, val) VALUES (0, 5)";
-		cmnd.ExecuteNonQuery();
+    // Update is called once per frame
+    void Update()
+    {
 
-		// Read and print all values in table
-		IDbCommand cmnd_read = dbcon.CreateCommand();
-		IDataReader reader;
-		string query ="SELECT * FROM my_table";
-		cmnd_read.CommandText = query;
-		reader = cmnd_read.ExecuteReader();
+    }
 
-		while (reader.Read())
-		{
-			Debug.Log("id: " + reader[0].ToString());
-			Debug.Log("val: " + reader[1].ToString());
-		}
+    private void resetDatabase()
+    {
+        initalizeItemDatabase();
+        initalizeSavegameDatabase();
+    }
 
-		// Close connection
-		dbcon.Close();
+    private void initalizeItemDatabase()
+    {
+        deleteItemDatabase();
+        insertDefaultItems();
+    }
 
-	}
+    private void deleteItemDatabase()
+    {
+        ItemDatabase itemDatabase = new ItemDatabase();
+        itemDatabase.deleteAllData();
+        itemDatabase.close();
+    }
 
-	private void CreateTables(){
-		CreateTable(saveGameTableQuery);
-		CreateTable(itemTableQuery);
-	}
+    public void insertDefaultItems()
+    {
+        ItemDatabase itemDatabase = new ItemDatabase();
+        itemDatabase.addData(new ItemEntity("0", "Alraune", "Mandragora", "Heilpflanze"));
+        itemDatabase.addData(new ItemEntity("1", "Tollkirsche", "Atropus belladonna", "Heilpflanze"));
+        itemDatabase.addData(new ItemEntity("2", "Wachholder", "Juniperus sabina", "Heilpflanze"));
+        itemDatabase.addData(new ItemEntity("3", "Fliegenpilz", "Juniperus sabina", "Pilz"));
+        itemDatabase.addData(new ItemEntity("4", "Morchel", "Juniperus sabina", "Pilz"));
+        itemDatabase.addData(new ItemEntity("5", "Kiefernschwamm", "Juniperus sabina", "Pilz"));
+        itemDatabase.close();
+    }
 
+    private void initalizeSavegameDatabase()
+    {
+        deleteSavegameDatabase();
+        insertDefaultSavegame();
+    }
 
+    private void deleteSavegameDatabase()
+    {
+        SavegameDatabase savegameDatabase = new SavegameDatabase();
+        savegameDatabase.deleteAllData();
+        savegameDatabase.close();
+    }
 
-	private void CreateTable(string Query){
-		string connection = "URI=file:" + Application.persistentDataPath + "/" + "Game";
-		IDbConnection dbcon = new SqliteConnection(connection);
-		dbcon.Open();
-		IDbCommand dbcmd;
-		dbcmd = dbcon.CreateCommand();		
-		dbcmd.CommandText = Query;
-		dbcmd.ExecuteReader();
-		dbcon.Close();
-
-	}
-
-	private void InsertItems(){
-		insertItem(alrauneString);
-		insertItem(tollkirschString);
-		insertItem(wachholderString);
-		insertItem(fliegenpilzString);
-		insertItem(morchelString);
-		insertItem(kiefernschwammString);
-	}
-
-	private void insertItem(string Item){
-		string connection = "URI=file:" + Application.persistentDataPath + "/" + "Game";
-		IDbCommand cmnd = dbcon.CreateCommand();
-		cmnd.CommandText = Item;
-		cmnd.ExecuteNonQuery();
-
-	}
-	
-
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private void insertDefaultSavegame()
+    {
+        SavegameDatabase savegameDatabase = new SavegameDatabase();
+        SavegameEntity savegame = new SavegameEntity("0", "1", "0", "0", "0", "0", "0", "0", "0", "0");
+        savegameDatabase.addData(savegame);
+        savegameDatabase.close();
+    }
 }
