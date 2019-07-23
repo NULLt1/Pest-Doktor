@@ -18,21 +18,7 @@ public class DatabaseManager : MonoBehaviour
             resetDatabase();
         }
         //Fetch All Data
-        ItemDatabase itemDatabase1 = new ItemDatabase();
-        System.Data.IDataReader reader = itemDatabase1.getAllData();
 
-        int fieldCount = reader.FieldCount;
-        List<ItemEntity> myList = new List<ItemEntity>();
-        while (reader.Read())
-        {
-            ItemEntity item = new ItemEntity(reader[0].ToString(),
-                                    reader[1].ToString(),
-                                    reader[2].ToString(),
-                                    reader[3].ToString());
-            Debug.Log("id: " + item._id);
-            myList.Add(item);
-        }
-        itemDatabase1.close();
 
         SavegameDatabase savegameDatabase = new SavegameDatabase();
         System.Data.IDataReader sreader = savegameDatabase.getAllData();
@@ -54,7 +40,7 @@ public class DatabaseManager : MonoBehaviour
             Debug.Log("id: " + savegame._id);
             smyList.Add(savegame);
         }
-        itemDatabase1.close();
+        savegameDatabase.close();
     }
 
     // Update is called once per frame
@@ -113,5 +99,25 @@ public class DatabaseManager : MonoBehaviour
         SavegameEntity savegame = new SavegameEntity("0", "1", "0", "0", "0", "0", "0", "0", "0", "0");
         savegameDatabase.addData(savegame);
         savegameDatabase.close();
+    }
+
+    public static List<Item> getAllItems()
+    {
+        ItemDatabase itemDatabase = new ItemDatabase();
+        System.Data.IDataReader reader = itemDatabase.getAllData();
+
+        int fieldCount = reader.FieldCount;
+        List<Item> itemList = new List<Item>();
+        while (reader.Read())
+        {
+            Item item = new Item(Integer.valueOf(reader[0]),
+                                    reader[1].ToString(),
+                                    reader[2].ToString(),
+                                    reader[3].ToString());
+            itemList.Add(item);
+        }
+
+        itemDatabase.close();
+        return itemList;
     }
 }
