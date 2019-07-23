@@ -11,6 +11,7 @@ public class Item
     public string itemLatinName;
     public string itemDescription;
     public Texture2D itemIcon;
+    public Sprite itemSprite;
 
 
     //Konstruktoren
@@ -21,6 +22,7 @@ public class Item
         this.itemLatinName = itemLatinName;
         this.itemDescription = itemDescription;
         this.itemIcon = Resources.Load<Texture2D>("Grafics/reagent");
+        this.itemSprite = Resources.Load<Sprite>("Grafics/reagent");
     }
     public Item()
     {

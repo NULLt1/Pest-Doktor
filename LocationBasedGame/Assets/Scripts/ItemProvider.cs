@@ -13,5 +13,13 @@ public class ItemProvider : MonoBehaviour
         databaseManager = FindObjectOfType<DatabaseManager>();
         items = DatabaseManager.getAllItems();
     }
+    public List<Item> getItems()
+    {
+        return items;
+    }
 
+    public Item getReagentItem(int index)
+    {
+        return items[index];
+    }
 }

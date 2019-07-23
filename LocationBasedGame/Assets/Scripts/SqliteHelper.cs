@@ -20,6 +20,7 @@ namespace DataBank
         public SqliteHelper()
         {
             dbConnectionString = "URI=file:" + Application.persistentDataPath + "/" + databaseName;
+            Debug.Log(dbConnectionString);
             dbConnection = new SqliteConnection(dbConnectionString);
             dbConnection.Open();
         }

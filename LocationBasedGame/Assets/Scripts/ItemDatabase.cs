@@ -19,7 +19,6 @@ namespace DataBank
         public ItemDatabase() : base()
         {
             IDbCommand dbcmd = getDbCommand();
-            Debug.Log(dbcmd);
             String query =
             dbcmd.CommandText = "CREATE TABLE IF NOT EXISTS " + tableName + " ( " +
                 keyId + " INT PRIMARY KEY, " +

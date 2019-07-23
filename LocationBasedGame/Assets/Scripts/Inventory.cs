@@ -32,7 +32,6 @@ public class Inventory : MonoBehaviour
         }
 
         itemProvider = GameObject.FindGameObjectWithTag("ItemDatabase").GetComponent<ItemProvider>();
-        Debug.Log(itemProvider);
         //AddItem(0);
         //AddItem(1);
         //AddItem(2);
@@ -142,6 +141,7 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(int id)
     {
+        Debug.Log(id);
         for (int i = 0; i < inventory.Count; i++)
         {
             if (inventory[i].itemName == null)
@@ -158,6 +158,7 @@ public class Inventory : MonoBehaviour
                 break;
             }
         }
+        GameObject.Find("DatabaseManager").GetComponent<DatabaseManager>().newItem(itemProvider.items[id]);
     }
 
     bool InventoryContains(int id)

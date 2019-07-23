@@ -27,7 +27,6 @@ namespace DataBank
         public SavegameDatabase() : base()
         {
             IDbCommand dbcmd = getDbCommand();
-            Debug.Log(dbcmd);
             String query =
             dbcmd.CommandText = "CREATE TABLE IF NOT EXISTS " + tableName + " ( " +
                 keyId + " INT PRIMARY KEY, " +
@@ -71,6 +70,17 @@ namespace DataBank
                 + savegame._fliegenpilzAmount + "', '"
                 + savegame._morchelAmount + "', '"
                 + savegame._kiefernschwammAmount + "' )";
+            dbcmd.ExecuteNonQuery();
+        }
+
+        public void incrementAmount(string identifier)
+        {
+            IDbCommand dbcmd = getDbCommand();
+            dbcmd.CommandText =
+                "UPDATE " + tableName +
+                " SET " + identifier.ToLower() + "Amount = " + identifier.ToLower() + "Amount + 1 " +
+                "WHERE id = '0'";
+                Debug.Log(dbcmd.CommandText);
             dbcmd.ExecuteNonQuery();
         }
 
