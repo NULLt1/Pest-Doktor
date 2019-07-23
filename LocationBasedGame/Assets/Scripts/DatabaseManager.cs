@@ -110,7 +110,7 @@ public class DatabaseManager : MonoBehaviour
         List<Item> itemList = new List<Item>();
         while (reader.Read())
         {
-            Item item = new Item(Integer.valueOf(reader[0]),
+            Item item = new Item((int) reader[0],
                                     reader[1].ToString(),
                                     reader[2].ToString(),
                                     reader[3].ToString());
