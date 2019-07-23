@@ -9,6 +9,7 @@ namespace LocationBasedGame
     {
         private void Awake()
         {
+            /*
             if (!photonView.IsMine && this.GetComponent<ImmediatePositionWithLocationProvider>() != null)
                 Destroy(this.GetComponent<ImmediatePositionWithLocationProvider>());
 
@@ -20,10 +21,12 @@ namespace LocationBasedGame
             {
                 this.gameObject.transform.GetChild(0).tag="Player";
             }
+             */
         }
 
         public static void RefreshInstance(ref PlayerNetwork player, PlayerNetwork Prefab)
         {
+            /*
             var position = Vector3.zero;
             var rotation = Quaternion.identity;
             if (player != null)
@@ -34,6 +37,7 @@ namespace LocationBasedGame
             }
 
             player = PhotonNetwork.Instantiate(Prefab.gameObject.name, position, rotation).GetComponent<PlayerNetwork>();
+             */
         }
     }
 }
