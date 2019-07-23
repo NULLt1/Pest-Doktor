@@ -33,9 +33,9 @@ public class Inventory : MonoBehaviour
 
         itemProvider = GameObject.FindGameObjectWithTag("ItemDatabase").GetComponent<ItemProvider>();
         Debug.Log(itemProvider);
-        AddItem(0);
-        AddItem(1);
-        AddItem(2);
+        //AddItem(0);
+        //AddItem(1);
+        //AddItem(2);
 
     }
 
@@ -94,6 +94,7 @@ public class Inventory : MonoBehaviour
                         tooltip = CreateTooltip(slots[i]);
                         showTooltip = true;
 
+                        /*
                         if (e.button == 0 && e.type == EventType.MouseDrag && !draggingItem) //e.button == 0 -> Linke Maustaste
                         {
                             draggingItem = true;
@@ -108,6 +109,7 @@ public class Inventory : MonoBehaviour
                             draggingItem = false;
                             draggedItem = null;
                         }
+                         */
                     }
                 }
                 else
@@ -121,10 +123,6 @@ public class Inventory : MonoBehaviour
                             draggedItem = null;
                         }
                     }
-                    /*if (e.isMouse && e.type == EventType.MouseDown && e.button == 1)
-                    {
-                        print("You clicked Item Nr. " + i);
-                    }*/
                 }
 
                 if (tooltip == "")

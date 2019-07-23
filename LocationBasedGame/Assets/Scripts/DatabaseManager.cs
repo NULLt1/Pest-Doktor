@@ -13,34 +13,38 @@ public class DatabaseManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        ItemDatabase itemDatabase = new ItemDatabase();
+        itemDatabase.close();
+        SavegameDatabase savegameDatabase = new SavegameDatabase();
+        savegameDatabase.close();
         if (resetDatabaseFlag == true)
         {
             resetDatabase();
         }
-        //Fetch All Data
 
+        /*
+                SavegameDatabase savegameDatabase = new SavegameDatabase();
+                System.Data.IDataReader sreader = savegameDatabase.getAllData();
 
-        SavegameDatabase savegameDatabase = new SavegameDatabase();
-        System.Data.IDataReader sreader = savegameDatabase.getAllData();
-
-        int sfieldCount = sreader.FieldCount;
-        List<SavegameEntity> smyList = new List<SavegameEntity>();
-        while (sreader.Read())
-        {
-            SavegameEntity savegame = new SavegameEntity(sreader[0].ToString(),
-                                    sreader[1].ToString(),
-                                    sreader[2].ToString(),
-                                    sreader[3].ToString(),
-                                    sreader[4].ToString(),
-                                    sreader[5].ToString(),
-                                    sreader[6].ToString(),
-                                    sreader[7].ToString(),
-                                    sreader[8].ToString(),
-                                    sreader[9].ToString());
-            Debug.Log("id: " + savegame._id);
-            smyList.Add(savegame);
-        }
-        savegameDatabase.close();
+                int sfieldCount = sreader.FieldCount;
+                List<SavegameEntity> smyList = new List<SavegameEntity>();
+                while (sreader.Read())
+                {
+                    SavegameEntity savegame = new SavegameEntity(sreader[0].ToString(),
+                                            sreader[1].ToString(),
+                                            sreader[2].ToString(),
+                                            sreader[3].ToString(),
+                                            sreader[4].ToString(),
+                                            sreader[5].ToString(),
+                                            sreader[6].ToString(),
+                                            sreader[7].ToString(),
+                                            sreader[8].ToString(),
+                                            sreader[9].ToString());
+                    Debug.Log("id: " + savegame._id);
+                    smyList.Add(savegame);
+                }
+                savegameDatabase.close();
+                 */
     }
 
     // Update is called once per frame
@@ -110,11 +114,12 @@ public class DatabaseManager : MonoBehaviour
         List<Item> itemList = new List<Item>();
         while (reader.Read())
         {
-            Item item = new Item((int) reader[0],
+            Item item = new Item((int)reader[0],
                                     reader[1].ToString(),
                                     reader[2].ToString(),
                                     reader[3].ToString());
             itemList.Add(item);
+            Debug.Log(item.itemName);
         }
 
         itemDatabase.close();
