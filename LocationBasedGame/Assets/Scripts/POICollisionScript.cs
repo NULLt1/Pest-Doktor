@@ -12,6 +12,7 @@ public class POICollisionScript : MonoBehaviour
     {
         collisionRing = Instantiate(collisionRing);
         collisionRing.transform.parent = this.transform;
+        collisionRing.transform.position = new Vector3(0,2,0);
         collisionRing.SetActive(false);
 
     }
