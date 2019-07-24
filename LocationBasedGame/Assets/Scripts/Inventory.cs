@@ -6,8 +6,6 @@ using System;
 
 //Tutorial dazu: https://www.youtube.com/watch?v=4KNoOEkKSnk&list=PLivfKP2ufIK7Elii_nQvrZm3-YoZjlYHo&index=8
 
-
-
 public class Inventory : MonoBehaviour
 {
     public int slotsX, slotsY;
@@ -133,23 +131,6 @@ public class Inventory : MonoBehaviour
                     {
                         tooltip = CreateTooltip(slots[i]);
                         showTooltip = true;
-
-                        /*
-                        if (e.button == 0 && e.type == EventType.MouseDrag && !draggingItem) //e.button == 0 -> Linke Maustaste
-                        {
-                            draggingItem = true;
-                            prevIndex = i;
-                            draggedItem = slots[i];
-                            inventory[i] = new Item();
-                        }
-                        if (e.type == EventType.MouseUp && draggingItem)
-                        {
-                            inventory[prevIndex] = inventory[i];
-                            inventory[i] = draggedItem;
-                            draggingItem = false;
-                            draggedItem = null;
-                        }
-                         */
                     }
                 }
                 else
@@ -182,7 +163,6 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(int id)
     {
-        Debug.Log(id);
         for (int i = 0; i < inventory.Count; i++)
         {
             if (inventory[i].itemName == null)

@@ -10,16 +10,14 @@ public class CameraFollow : MonoBehaviour
 
     private CinemachineVirtualCamera virtualCamera;
 
-    // Start is called before the first frame update
     void Start()
     {
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (tPlayer == null && GameObject.FindWithTag("Player")!=null)
+        if (tPlayer == null && GameObject.FindWithTag("Player") != null)
         {
             Debug.Log(GameObject.FindWithTag("Player"));
             tPlayer = GameObject.FindWithTag("Player");
@@ -30,7 +28,5 @@ public class CameraFollow : MonoBehaviour
                 virtualCamera.Follow = tFollowTarget;
             }
         }
-        //gameObject.transform.position = .transform.position+offset;
-
     }
 }

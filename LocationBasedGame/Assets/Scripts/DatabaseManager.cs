@@ -10,7 +10,6 @@ public class DatabaseManager : MonoBehaviour
 {
     public bool resetDatabaseFlag;
 
-    // Use this for initialization
     void Start()
     {
         ItemDatabase itemDatabase = new ItemDatabase();
@@ -23,7 +22,6 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -58,6 +56,31 @@ public class DatabaseManager : MonoBehaviour
         itemDatabase.addData(new ItemEntity("4", "Morchel", "Juniperus sabina", "Pilz"));
         itemDatabase.addData(new ItemEntity("5", "Kiefernschwamm", "Juniperus sabina", "Pilz"));
         itemDatabase.close();
+    }
+
+    public void newItem(Item item)
+    {
+        SavegameDatabase savegameDatabase = new SavegameDatabase();
+        savegameDatabase.incrementAmount(item.itemName);
+        Debug.Log(item.itemName);
+    }
+
+    public static List<Item> getAllItems()
+    {
+        ItemDatabase itemDatabase = new ItemDatabase();
+        System.Data.IDataReader reader = itemDatabase.getAllData();
+        List<Item> itemList = new List<Item>();
+        while (reader.Read())
+        {
+            Item item = new Item((int)reader[0],
+                                    reader[1].ToString(),
+                                    reader[2].ToString(),
+                                    reader[3].ToString());
+            itemList.Add(item);
+        }
+
+        itemDatabase.close();
+        return itemList;
     }
 
     private void initalizeSavegameDatabase()
@@ -102,28 +125,5 @@ public class DatabaseManager : MonoBehaviour
         return savegame;
     }
 
-    public void newItem(Item item)
-    {
-        SavegameDatabase savegameDatabase = new SavegameDatabase();
-        savegameDatabase.incrementAmount(item.itemName);
-        Debug.Log(item.itemName);
-    }
 
-    public static List<Item> getAllItems()
-    {
-        ItemDatabase itemDatabase = new ItemDatabase();
-        System.Data.IDataReader reader = itemDatabase.getAllData();
-        List<Item> itemList = new List<Item>();
-        while (reader.Read())
-        {
-            Item item = new Item((int)reader[0],
-                                    reader[1].ToString(),
-                                    reader[2].ToString(),
-                                    reader[3].ToString());
-            itemList.Add(item);
-        }
-
-        itemDatabase.close();
-        return itemList;
-    }
 }

@@ -80,7 +80,6 @@ namespace DataBank
                 "UPDATE " + tableName +
                 " SET " + identifier.ToLower() + "Amount = " + identifier.ToLower() + "Amount + 1 " +
                 "WHERE id = '0'";
-            Debug.Log(dbcmd.CommandText);
             dbcmd.ExecuteNonQuery();
         }
 

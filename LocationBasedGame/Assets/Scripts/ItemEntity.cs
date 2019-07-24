@@ -11,6 +11,7 @@ namespace DataBank
         public string name;
         public string latinName;
         public string description;
+
         public ItemEntity(string id, string name, string latinName, string description)
         {
             this.id = id;

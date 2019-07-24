@@ -59,8 +59,6 @@ namespace DataBank
 
         public override void deleteAllData()
         {
-            Debug.Log(tag + "Deleting Table");
-
             base.deleteAllData(tableName);
         }
 

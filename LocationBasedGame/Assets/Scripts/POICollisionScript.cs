@@ -7,17 +7,15 @@ public class POICollisionScript : MonoBehaviour
     public GameObject collisionRing;
     public bool active { get; set; }
 
-    // Start is called before the first frame update
     void Start()
     {
         collisionRing = Instantiate(collisionRing);
         collisionRing.transform.parent = this.transform;
-        collisionRing.transform.position = new Vector3(0,2,0);
+        collisionRing.transform.position = new Vector3(0, 2, 0);
         collisionRing.SetActive(false);
 
     }
 
-    // Update is called once per frame
     void Update()
     {
 

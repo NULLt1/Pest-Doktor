@@ -26,7 +26,7 @@ namespace LocationBasedGame
         public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
         {
            // PlayerNetwork.RefreshInstance(ref LocalPlayer, PlayerPrefab);
-           //Debug.Log("New Player");
+           // Debug.Log("New Player");
         }
     }
 }

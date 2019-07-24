@@ -13,32 +13,29 @@ namespace LocationBasedGame
         public Text TextConnected;
         public Text TextJoiningRoom;
 
-        private bool _connectingToMaster;
-        private bool _joiningRoom;
+        private bool connectingToMaster;
+        private bool joiningRoom;
 
-        // Start is called before the first frame update
         void Start()
         {
-            Debug.Log("STARTED");
             DontDestroyOnLoad(this.gameObject);
-            _connectingToMaster = false;
-            _joiningRoom = false;
+            connectingToMaster = false;
+            joiningRoom = false;
         }
 
-        // Update is called once per frame
         void Update()
         {
             if (ButtonConnect != null)
-                ButtonConnect.gameObject.SetActive(!PhotonNetwork.IsConnected && !_connectingToMaster);
+                ButtonConnect.gameObject.SetActive(!PhotonNetwork.IsConnected && !connectingToMaster);
 
             if (ButtonJoin != null)
-                ButtonJoin.gameObject.SetActive(PhotonNetwork.IsConnected && _connectingToMaster && !_joiningRoom);
-            
+                ButtonJoin.gameObject.SetActive(PhotonNetwork.IsConnected && connectingToMaster && !joiningRoom);
+
             if (TextConnected != null)
-               TextConnected.gameObject.SetActive(PhotonNetwork.IsConnected && _connectingToMaster);
+                TextConnected.gameObject.SetActive(PhotonNetwork.IsConnected && connectingToMaster);
 
             if (TextJoiningRoom != null)
-               TextJoiningRoom.gameObject.SetActive(_joiningRoom);
+                TextJoiningRoom.gameObject.SetActive(joiningRoom);
         }
 
         public void Button_Connect()
@@ -51,22 +48,21 @@ namespace LocationBasedGame
             if (!PhotonNetwork.IsConnected)
                 return;
 
-            _joiningRoom = true;
+            joiningRoom = true;
             PhotonNetwork.JoinRandomRoom();
         }
 
         public override void OnConnectedToMaster()
         {
             base.OnConnectedToMaster();
-            _connectingToMaster = true;
-            Debug.Log("Connected to Master!");
+            connectingToMaster = true;
         }
 
         public override void OnDisconnected(DisconnectCause cause)
         {
             base.OnDisconnected(cause);
-            _connectingToMaster = false;
-            _joiningRoom = false;
+            connectingToMaster = false;
+            joiningRoom = false;
             Debug.Log(cause);
         }
 
@@ -81,13 +77,12 @@ namespace LocationBasedGame
             base.OnCreateRoomFailed(returnCode, message);
             Debug.Log(message);
             base.OnCreateRoomFailed(returnCode, message);
-            _joiningRoom = false;
+            joiningRoom = false;
         }
 
         public override void OnJoinedRoom()
         {
             base.OnJoinedRoom();
-            Debug.Log("Room: " + PhotonNetwork.CurrentRoom.Name + " - Players: " + PhotonNetwork.CurrentRoom.PlayerCount + " - Master: " + PhotonNetwork.IsMasterClient);
             SceneManager.LoadScene("LocationBasedGame");
         }
     }

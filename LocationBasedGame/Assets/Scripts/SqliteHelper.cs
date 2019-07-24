@@ -20,7 +20,6 @@ namespace DataBank
         public SqliteHelper()
         {
             dbConnectionString = "URI=file:" + Application.persistentDataPath + "/" + databaseName;
-            Debug.Log(dbConnectionString);
             dbConnection = new SqliteConnection(dbConnectionString);
             dbConnection.Open();
         }
@@ -30,7 +29,6 @@ namespace DataBank
             dbConnection.Close();
         }
 
-        // virtual functions
         public virtual IDataReader getDataById(int id)
         {
             Debug.Log(Tag + "This function is not implemnted");
@@ -73,7 +71,6 @@ namespace DataBank
             throw null;
         }
 
-        //helper functions
         public IDbCommand getDbCommand()
         {
             return dbConnection.CreateCommand();

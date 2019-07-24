@@ -16,6 +16,7 @@ namespace DataBank
         public string fliegenpilzAmount;
         public string morchelAmount;
         public string kiefernschwammAmount;
+
         public SavegameEntity(string id, string level,
             string experience, string infection, string alrauneAmount,
             string tollkirscheAmount, string wachholderAmount, string fliegenpilzAmount,

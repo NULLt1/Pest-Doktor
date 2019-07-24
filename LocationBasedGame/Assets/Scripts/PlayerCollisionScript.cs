@@ -9,7 +9,6 @@ public class PlayerCollisionScript : MonoBehaviour
     private static Canvas oreUI;
     private Button enterButton;
     private ReagentButtonSpawn reagentButtonSpawn;
-    // Start is called before the first frame update
     void Start()
     {
         if (GameObject.Find("EnterButton") != null)
@@ -24,14 +23,12 @@ public class PlayerCollisionScript : MonoBehaviour
         oreUI.enabled = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
     }
 
     void OnCollisionStay(Collision collision)
     {
-        //enterButton.gameObject.SetActive(true);
         if ((Input.GetMouseButtonDown(0) || Input.touchCount > 0) && oreUI.enabled == false)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -48,7 +45,6 @@ public class PlayerCollisionScript : MonoBehaviour
 
     void OnCollisionExit(Collision other)
     {
-        //enterButton.gameObject.SetActive(false);
         if (oreUI.enabled)
         {
             toggleCanvas();
