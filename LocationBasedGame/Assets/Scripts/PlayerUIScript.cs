@@ -58,6 +58,6 @@ public class PlayerUIScript : MonoBehaviour
     public void togglePlayerUICanvas()
     {
         Debug.Log("HELLLOOO");
-        playerUICanvas.enabled=!playerUICanvas.enabled;
+        playerUICanvas.enabled!playerUICanvas.enabled;
     }
 }
