@@ -427,10 +427,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 96354275724595339}
+  - component: {fileID: 8060408098356149745}
   - component: {fileID: -9193199456333979384}
   - component: {fileID: -6354268800302071568}
-  - component: {fileID: 8060408098356149745}
   - component: {fileID: 6703775127475656057}
+  - component: {fileID: -1623970572480023569}
   m_Layer: 0
   m_Name: Pestbrunnen
   m_TagString: Untagged
@@ -457,6 +458,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &8060408098356149745
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3966836110603149976}
+  m_Enabled: 0
+  m_Avatar: {fileID: 9000000, guid: 17b00771640165344a0551305041ce93, type: 3}
+  m_Controller: {fileID: 9100000, guid: 2470b11122cdab54a8c7b8b9372ad369, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!135 &-9193199456333979384
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -484,27 +504,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
---- !u!95 &8060408098356149745
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3966836110603149976}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 17b00771640165344a0551305041ce93, type: 3}
-  m_Controller: {fileID: 9100000, guid: 2470b11122cdab54a8c7b8b9372ad369, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &6703775127475656057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -519,6 +520,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionRing: {fileID: 3674083597120806008, guid: 34a923ca4eb50e241b736946c72372ca,
     type: 3}
+--- !u!114 &-1623970572480023569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3966836110603149976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8426ba3221071d04490923e53a970ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8152154330550930219
 GameObject:
   m_ObjectHideFlags: 0

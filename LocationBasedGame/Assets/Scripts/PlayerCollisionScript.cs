@@ -44,18 +44,18 @@ public class PlayerCollisionScript : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log(hit.transform.gameObject);
+                //Debug.Log(hit.transform.gameObject);
 
                 if (hit.transform.gameObject.GetComponent<POICollisionScript>().active)
                 {
                     if(hit.transform.gameObject.name == "Reagent(Clone)")
                     {
-                        Debug.Log("FIRE REAGENT");
+                        //Debug.Log("FIRE REAGENT");
                         toggleCanvas();
                     }
                     if (hit.transform.gameObject.name == "Pestbrunnen(Clone)")
                     {
-                        Debug.Log("FIRE SEUCHE");
+                        //Debug.Log("FIRE SEUCHE");
                         toggleSeucheCanvas();
                     }
                 }
@@ -72,7 +72,7 @@ public class PlayerCollisionScript : MonoBehaviour
         }
         if (seucheUI.enabled)
         {
-            Debug.Log("EXIT");
+            //Debug.Log("EXIT");
             toggleSeucheCanvas();
         }
     }
@@ -92,7 +92,7 @@ public class PlayerCollisionScript : MonoBehaviour
 
     public void toggleSeucheCanvas()
     {
-        Debug.Log("Toggle Canvas called on: " + seucheUI + ", Status: " + seucheUI.enabled);
+        //Debug.Log("Toggle Canvas called on: " + seucheUI + ", Status: " + seucheUI.enabled);
         if (seucheUI.enabled)
         {
             seucheUI.enabled = false;
