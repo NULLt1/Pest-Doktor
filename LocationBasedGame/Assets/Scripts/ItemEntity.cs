@@ -7,16 +7,16 @@ namespace DataBank
 {
     public class ItemEntity
     {
-        public string _id;
-        public string _name;
-        public string _latinName;
-        public string _description;
+        public string id;
+        public string name;
+        public string latinName;
+        public string description;
         public ItemEntity(string id, string name, string latinName, string description)
         {
-            _id = id;
-            _name = name;
-            _latinName = latinName;
-            _description = description;
+            this.id = id;
+            this.name = name;
+            this.latinName = latinName;
+            this.description = description;
         }
     }
 }

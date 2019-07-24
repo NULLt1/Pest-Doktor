@@ -16,25 +16,6 @@ public class DatabaseManager : MonoBehaviour
         ItemDatabase itemDatabase = new ItemDatabase();
         itemDatabase.close();
         SavegameDatabase savegameDatabase = new SavegameDatabase();
-        System.Data.IDataReader sreader = savegameDatabase.getAllData();
-
-        int sfieldCount = sreader.FieldCount;
-        List<SavegameEntity> smyList = new List<SavegameEntity>();
-        while (sreader.Read())
-        {
-            SavegameEntity savegame = new SavegameEntity(sreader[0].ToString(),
-                                    sreader[1].ToString(),
-                                    sreader[2].ToString(),
-                                    sreader[3].ToString(),
-                                    sreader[4].ToString(),
-                                    sreader[5].ToString(),
-                                    sreader[6].ToString(),
-                                    sreader[7].ToString(),
-                                    sreader[8].ToString(),
-                                    sreader[9].ToString());
-            Debug.Log("id: " + savegame._wachholderAmount);
-            smyList.Add(savegame);
-        }
         savegameDatabase.close();
         if (resetDatabaseFlag == true)
         {
@@ -100,6 +81,27 @@ public class DatabaseManager : MonoBehaviour
         savegameDatabase.close();
     }
 
+    public SavegameEntity getSafeGameById(int id)
+    {
+        SavegameDatabase savegameDatabase = new SavegameDatabase();
+        System.Data.IDataReader reader = savegameDatabase.getDataById(id);
+        SavegameEntity savegame = null;
+        while (reader.Read())
+        {
+            savegame = new SavegameEntity(reader[0].ToString(),
+                                    reader[1].ToString(),
+                                    reader[2].ToString(),
+                                    reader[3].ToString(),
+                                    reader[4].ToString(),
+                                    reader[5].ToString(),
+                                    reader[6].ToString(),
+                                    reader[7].ToString(),
+                                    reader[8].ToString(),
+                                    reader[9].ToString());
+        }
+        return savegame;
+    }
+
     public void newItem(Item item)
     {
         SavegameDatabase savegameDatabase = new SavegameDatabase();
@@ -111,8 +113,6 @@ public class DatabaseManager : MonoBehaviour
     {
         ItemDatabase itemDatabase = new ItemDatabase();
         System.Data.IDataReader reader = itemDatabase.getAllData();
-
-        int fieldCount = reader.FieldCount;
         List<Item> itemList = new List<Item>();
         while (reader.Read())
         {

@@ -10,7 +10,7 @@ namespace DataBank
 {
     public class SavegameDatabase : SqliteHelper
     {
-        private const String Tag = "SavegameDatabase:\t";
+        private const String tag = "SavegameDatabase:\t";
         private const String tableName = "savegame";
         private const String keyId = "id";
         private const String keyLevel = "level";
@@ -60,16 +60,16 @@ namespace DataBank
                 + keyKiefernschwammAmount + " ) "
 
                 + "VALUES ( '"
-                + savegame._id + "', '"
-                + savegame._level + "', '"
-                + savegame._experience + "', '"
-                + savegame._infection + "', '"
-                + savegame._alrauneAmount + "', '"
-                + savegame._tollkirscheAmount + "', '"
-                + savegame._wachholderAmount + "', '"
-                + savegame._fliegenpilzAmount + "', '"
-                + savegame._morchelAmount + "', '"
-                + savegame._kiefernschwammAmount + "' )";
+                + savegame.id + "', '"
+                + savegame.level + "', '"
+                + savegame.experience + "', '"
+                + savegame.infection + "', '"
+                + savegame.alrauneAmount + "', '"
+                + savegame.tollkirscheAmount + "', '"
+                + savegame.wachholderAmount + "', '"
+                + savegame.fliegenpilzAmount + "', '"
+                + savegame.morchelAmount + "', '"
+                + savegame.kiefernschwammAmount + "' )";
             dbcmd.ExecuteNonQuery();
         }
 
@@ -80,13 +80,17 @@ namespace DataBank
                 "UPDATE " + tableName +
                 " SET " + identifier.ToLower() + "Amount = " + identifier.ToLower() + "Amount + 1 " +
                 "WHERE id = '0'";
-                Debug.Log(dbcmd.CommandText);
+            Debug.Log(dbcmd.CommandText);
             dbcmd.ExecuteNonQuery();
         }
 
         public override IDataReader getDataById(int id)
         {
-            return base.getDataById(id);
+            IDbCommand dbcmd = dbConnection.CreateCommand();
+            dbcmd.CommandText =
+                "SELECT * FROM " + tableName + " WHERE id='" + id + "'";
+            IDataReader reader = dbcmd.ExecuteReader();
+            return reader;
         }
 
         public override void deleteDataById(int id)
@@ -96,7 +100,7 @@ namespace DataBank
 
         public override void deleteAllData()
         {
-            Debug.Log(Tag + "Deleting Table");
+            Debug.Log(tag + "Deleting Table");
 
             base.deleteAllData(tableName);
         }

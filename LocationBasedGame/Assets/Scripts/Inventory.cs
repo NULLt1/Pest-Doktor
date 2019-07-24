@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DataBank;
+using System;
 
 //Tutorial dazu: https://www.youtube.com/watch?v=4KNoOEkKSnk&list=PLivfKP2ufIK7Elii_nQvrZm3-YoZjlYHo&index=8
 
@@ -13,29 +14,69 @@ public class Inventory : MonoBehaviour
     public GUISkin skin;
     public List<Item> inventory = new List<Item>();
     private ItemProvider itemProvider;
+    private DatabaseManager databaseManager;
     private bool showInventory;
     public List<Item> slots = new List<Item>();
     private bool showTooltip;
     private string tooltip;
-
     private bool draggingItem;
     private Item draggedItem;
     private int prevIndex;
+    private int itemIdHelper = 0;
 
     private void Start()
     {
-        //Inventar Tabelle
         for (int i = 0; i < (slotsX * slotsY); i++)
         {
             slots.Add(new Item());
             inventory.Add(new Item());
         }
-
         itemProvider = GameObject.FindGameObjectWithTag("ItemDatabase").GetComponent<ItemProvider>();
-        //AddItem(0);
-        //AddItem(1);
-        //AddItem(2);
+        databaseManager = FindObjectOfType<DatabaseManager>();
+        addItemsFormSavegame();
+    }
 
+    private void addItemsFormSavegame()
+    {
+        SavegameEntity savegame = databaseManager.getSafeGameById(0);
+        addItemXTimes(savegame.alrauneAmount);
+        addItemXTimes(savegame.tollkirscheAmount);
+        addItemXTimes(savegame.wachholderAmount);
+        addItemXTimes(savegame.fliegenpilzAmount);
+        addItemXTimes(savegame.morchelAmount);
+        addItemXTimes(savegame.kiefernschwammAmount);
+        itemIdHelper = 0;
+    }
+
+    private void addItemXTimes(string itemAmount)
+    {
+        int itemAmountInt = Convert.ToInt32(itemAmount);
+        for (int i = 0; i < itemAmountInt; i++)
+        {
+            addItemFromSavegame(itemIdHelper);
+        }
+        itemIdHelper++;
+    }
+
+    public void addItemFromSavegame(int id)
+    {
+        Debug.Log(id);
+        for (int i = 0; i < inventory.Count; i++)
+        {
+            if (inventory[i].itemName == null)
+            {
+                inventory[i] = itemProvider.items[id];
+
+                for (int j = 0; j < itemProvider.items.Count; j++)
+                {
+                    if (itemProvider.items[j].itemId == id)
+                    {
+                        inventory[i] = itemProvider.items[j];
+                    }
+                }
+                break;
+            }
+        }
     }
 
     void OnGUI()

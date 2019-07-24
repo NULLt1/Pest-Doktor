@@ -9,7 +9,7 @@ namespace DataBank
 {
     public class ItemDatabase : SqliteHelper
     {
-        private const String Tag = "ItemDatabase:\t";
+        private const String tag = "ItemDatabase:\t";
         private const String tableName = "item";
         private const String keyId = "id";
         private const String keyName = "name";
@@ -40,10 +40,10 @@ namespace DataBank
                 + keyDescription + " ) "
 
                 + "VALUES ( '"
-                + item._id + "', '"
-                + item._name + "', '"
-                + item._latinName + "', '"
-                + item._description + "' )";
+                + item.id + "', '"
+                + item.name + "', '"
+                + item.latinName + "', '"
+                + item.description + "' )";
             dbcmd.ExecuteNonQuery();
         }
 
@@ -59,7 +59,7 @@ namespace DataBank
 
         public override void deleteAllData()
         {
-            Debug.Log(Tag + "Deleting Table");
+            Debug.Log(tag + "Deleting Table");
 
             base.deleteAllData(tableName);
         }
