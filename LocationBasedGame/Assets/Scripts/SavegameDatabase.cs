@@ -13,6 +13,7 @@ namespace DataBank
         private const String tag = "SavegameDatabase:\t";
         private const String tableName = "savegame";
         private const String keyId = "id";
+        private const String keyName = "name";
         private const String keyLevel = "level";
         private const String keyExperience = "experience";
         private const String keyInfection = "infection";
@@ -30,6 +31,7 @@ namespace DataBank
             String query =
             dbcmd.CommandText = "CREATE TABLE IF NOT EXISTS " + tableName + " ( " +
                 keyId + " INT PRIMARY KEY, " +
+                keyName + " CHAR(25), " +
                 keyLevel + " INT, " +
                 keyExperience + " INT, " +
                 keyInfection + " INT, " +
@@ -42,6 +44,8 @@ namespace DataBank
             dbcmd.ExecuteNonQuery();
         }
 
+
+
         public void addData(SavegameEntity savegame)
         {
             IDbCommand dbcmd = getDbCommand();
@@ -49,6 +53,7 @@ namespace DataBank
                 "INSERT INTO " + tableName
                 + " ( "
                 + keyId + ", "
+                + keyName + ", "
                 + keyLevel + ", "
                 + keyExperience + ", "
                 + keyInfection + ", "
@@ -61,6 +66,7 @@ namespace DataBank
 
                 + "VALUES ( '"
                 + savegame.id + "', '"
+                + savegame.name + "', '"
                 + savegame.level + "', '"
                 + savegame.experience + "', '"
                 + savegame.infection + "', '"
@@ -79,15 +85,47 @@ namespace DataBank
             dbcmd.CommandText =
                 "UPDATE " + tableName +
                 " SET " + identifier.ToLower() + "Amount = " + identifier.ToLower() + "Amount + 1 " +
-                "WHERE id = '0'";
+                "WHERE " + keyId + "  = '0'";
             dbcmd.ExecuteNonQuery();
+        }
+
+        public IDataReader playerNameExists()
+        {
+            IDbCommand dbcmd = getDbCommand();
+            dbcmd.CommandText =
+                "SELECT " + keyName + " FROM " + tableName +
+               " WHERE " + keyId + "  = '0'";
+            //dbcmd.ExecuteNonQuery();
+            return dbcmd.ExecuteReader();
+        }
+
+        public void savePlayerName(string name)
+        {
+            IDbCommand dbcmd = getDbCommand();
+            dbcmd.CommandText =
+                "UPDATE " + tableName +
+                " SET " + keyName + " = '" + name +
+                "' WHERE " + keyId + " = '0'";
+                Debug.Log(dbcmd.CommandText);
+            dbcmd.ExecuteNonQuery();
+        }
+
+        public IDataReader getPlayerName()
+        {
+            IDbCommand dbcmd = getDbCommand();
+            dbcmd.CommandText =
+                "SELECT " + keyName +
+                " FROM " + tableName +
+                " WHERE " + keyId + "  = '0'";
+            //dbcmd.ExecuteNonQuery();
+            return dbcmd.ExecuteReader();
         }
 
         public override IDataReader getDataById(int id)
         {
             IDbCommand dbcmd = dbConnection.CreateCommand();
             dbcmd.CommandText =
-                "SELECT * FROM " + tableName + " WHERE id='" + id + "'";
+                "SELECT * FROM " + tableName + " WHERE " + keyId + " = " + id;
             IDataReader reader = dbcmd.ExecuteReader();
             return reader;
         }

@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 public class DatabaseManager : MonoBehaviour
 {
-    public bool resetDatabaseFlag;
+    protected static bool resetDatabaseFlag;
 
     void Start()
     {
@@ -16,6 +16,7 @@ public class DatabaseManager : MonoBehaviour
         itemDatabase.close();
         SavegameDatabase savegameDatabase = new SavegameDatabase();
         savegameDatabase.close();
+        resetDatabaseFlag = false;
         if (resetDatabaseFlag == true)
         {
             resetDatabase();
@@ -25,6 +26,46 @@ public class DatabaseManager : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public bool playerNameExists()
+    {
+        SavegameDatabase savegameDatabase = new SavegameDatabase();
+        bool nameBool = false;
+        System.Data.IDataReader reader = savegameDatabase.playerNameExists();
+        while (reader.Read())
+        {
+            if (reader[0].ToString() != "")
+            {
+                nameBool = true;
+            }
+            Debug.Log("Name Bool: "+ nameBool);
+        }
+        savegameDatabase.close();
+        return nameBool;
+    }
+
+    public void setPlayerName(string name)
+    {
+        SavegameDatabase savegameDatabase = new SavegameDatabase();
+        savegameDatabase.savePlayerName(name);
+        savegameDatabase.close();
+    }
+
+    public string getPlayerName()
+    {
+        SavegameDatabase savegameDatabase = new SavegameDatabase();
+        string name = "";
+        System.Data.IDataReader reader = savegameDatabase.getPlayerName();
+        while (reader.Read())
+        {
+            if (reader[0].ToString() != "")
+            {
+                name = reader[0].ToString();
+            }
+        }
+        savegameDatabase.close();
+        return name;
     }
 
     private void resetDatabase()
@@ -100,7 +141,7 @@ public class DatabaseManager : MonoBehaviour
     private void insertDefaultSavegame()
     {
         SavegameDatabase savegameDatabase = new SavegameDatabase();
-        SavegameEntity savegame = new SavegameEntity("0", "1", "0", "0", "0", "0", "0", "0", "0", "0");
+        SavegameEntity savegame = new SavegameEntity("0", null, "1", "0", "0", "0", "0", "0", "0", "0", "0");
         savegameDatabase.addData(savegame);
         savegameDatabase.close();
     }
@@ -121,10 +162,9 @@ public class DatabaseManager : MonoBehaviour
                                     reader[6].ToString(),
                                     reader[7].ToString(),
                                     reader[8].ToString(),
-                                    reader[9].ToString());
+                                    reader[9].ToString(),
+                                    reader[10].ToString());
         }
         return savegame;
     }
-
-
 }

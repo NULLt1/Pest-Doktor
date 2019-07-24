@@ -7,6 +7,7 @@ namespace DataBank
     public class SavegameEntity
     {
         public string id;
+        public string name;
         public string level;
         public string experience;
         public string infection;
@@ -17,12 +18,13 @@ namespace DataBank
         public string morchelAmount;
         public string kiefernschwammAmount;
 
-        public SavegameEntity(string id, string level,
+        public SavegameEntity(string id, string name, string level,
             string experience, string infection, string alrauneAmount,
             string tollkirscheAmount, string wachholderAmount, string fliegenpilzAmount,
             string morchelAmount, string kiefernschwammAmount)
         {
             this.id = id;
+            this.name = name;
             this.level = level;
             this.experience = experience;
             this.infection = infection;
