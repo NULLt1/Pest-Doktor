@@ -6,7 +6,7 @@ using Mono.Data.Sqlite;
 using UnityEngine;
 using System.Data;
 
-namespace DataBank
+namespace DatabaseN
 {
     public class SqliteHelper
     {

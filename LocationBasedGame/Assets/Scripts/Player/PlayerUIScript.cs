@@ -1,16 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DatabaseN;
+using ItemN;
+using UnityEngine.UI;
 
 public class PlayerUIScript : MonoBehaviour
 {
     Vector2[] reagentPosition = new Vector2[6];
     int positionCounter = 0;
     private DatabaseManager databaseManager;
-    private static Canvas playerUICanvas;
-
+    private GameObject playerUI;
+    private Canvas playerUICanvas;
+    private Button playerUIExitButton;
     private ItemProvider itemProvider;
-    public GameObject playerUIReagentPrefab;
+    private GameObject playerUIReagentPrefab;
 
     public List<Item> items = new List<Item>();
 
@@ -26,10 +30,13 @@ public class PlayerUIScript : MonoBehaviour
         itemProvider = FindObjectOfType<ItemProvider>();
         items = itemProvider.getItems();
         drawItemIcons();
-        if (GameObject.Find("PlayerUI") != null)
+        playerUI = GameObject.Find("PlayerUI");
+        if (playerUI != null)
         {
             playerUICanvas = GameObject.Find("PlayerUI").GetComponent<Canvas>();
+            playerUIExitButton = GameObject.Find("PlayerUI").GetComponent<Button>();
         }
+        playerUIReagentPrefab = Resources.Load<GameObject>("Assets/PlayerUIReagent");
         playerUICanvas.enabled = false;
     }
 
@@ -58,6 +65,6 @@ public class PlayerUIScript : MonoBehaviour
     public void togglePlayerUICanvas()
     {
         Debug.Log("HELLLOOO");
-        playerUICanvas.enabled!playerUICanvas.enabled;
+        playerUICanvas.enabled = !playerUICanvas.enabled;
     }
 }

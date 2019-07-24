@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-namespace DataBank
+namespace DatabaseN
 {
     public class ItemDatabase : SqliteHelper
     {

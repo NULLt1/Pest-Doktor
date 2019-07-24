@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DataBank;
+using DatabaseN;
+using ItemN;
 using System;
 
 //Tutorial dazu: https://www.youtube.com/watch?v=4KNoOEkKSnk&list=PLivfKP2ufIK7Elii_nQvrZm3-YoZjlYHo&index=8

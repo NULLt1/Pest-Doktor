@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using ItemN;
+
 public class ReagentButtonSpawn : MonoBehaviour
 {
     Vector2[] buttonPosition = new Vector2[3];

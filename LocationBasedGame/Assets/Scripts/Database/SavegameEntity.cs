@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DataBank
+namespace DatabaseN
 {
     public class SavegameEntity
     {
