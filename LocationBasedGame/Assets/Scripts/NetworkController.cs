@@ -10,8 +10,8 @@ namespace LocationBasedGame
     {
         public Button ButtonConnect;
         public Button ButtonJoin;
-        public Text TextConnected;
-        public Text TextJoiningRoom;
+        public Image TextConnected;
+        public Image TextJoiningRoom;
 
         private bool connectingToMaster;
         private bool joiningRoom;

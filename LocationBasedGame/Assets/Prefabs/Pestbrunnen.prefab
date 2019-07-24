@@ -431,7 +431,6 @@ GameObject:
   - component: {fileID: -9193199456333979384}
   - component: {fileID: -6354268800302071568}
   - component: {fileID: 6703775127475656057}
-  - component: {fileID: -1623970572480023569}
   m_Layer: 0
   m_Name: Pestbrunnen
   m_TagString: Untagged
@@ -520,18 +519,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionRing: {fileID: 3674083597120806008, guid: 34a923ca4eb50e241b736946c72372ca,
     type: 3}
---- !u!114 &-1623970572480023569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3966836110603149976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8426ba3221071d04490923e53a970ca9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8152154330550930219
 GameObject:
   m_ObjectHideFlags: 0

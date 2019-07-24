@@ -6,10 +6,8 @@ using UnityEngine.UI;
 public class PlagueController : MonoBehaviour
 {
     private Canvas seucheUI;
-    private Image healthBar;
-    public float health;
-    public float healthFaktor;
-    private IEnumerator coroutine;
+    private Image healthBar, infektBar, mainInfektBar;
+    public float health, infektion, healthFaktor, infektFaktor, infektHealFaktor;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +15,15 @@ public class PlagueController : MonoBehaviour
         {
             seucheUI = GameObject.Find("SeucheUI").GetComponent<Canvas>();
             healthBar = GameObject.Find("Bar").GetComponent<Image>();
+            infektBar = GameObject.Find("InfektionBar").GetComponent<Image>();
+            mainInfektBar = GameObject.Find("MainInfektBar").GetComponent<Image>();
         }
 
         health = 100;
-        healthFaktor = 0.5f;
+        healthFaktor = 0.05f;
+        infektion = 0;
+        infektFaktor = 0.5f;
+        infektHealFaktor = 0.1f;
     }
 
     // Update is called once per frame
@@ -28,16 +31,24 @@ public class PlagueController : MonoBehaviour
     {
         if (seucheUI.enabled)
         {
-            Debug.Log("UI: " + seucheUI.enabled);
             health -= healthFaktor;
+            infektion += infektFaktor;
             healthBar.GetComponent<Image>().fillAmount = health / 100f;
+            infektBar.GetComponent<Image>().fillAmount = infektion / 100f;
+            mainInfektBar.GetComponent<Image>().fillAmount = infektion / 100f;
 
             if (health == 0)
             {
-                Debug.Log("Health: " + health);
                 resetAndHidePlague();
                 GameObject.Find("Player").GetComponent<PlayerCollisionScript>().toggleSeucheCanvas();
             }
+            if(infektion == 100) {
+                GameObject.Find("Player").GetComponent<PlayerCollisionScript>().toggleSeucheCanvas();
+            }
+        } else {
+            infektion -= infektHealFaktor;
+            infektBar.GetComponent<Image>().fillAmount = infektion / 100f;
+            mainInfektBar.GetComponent<Image>().fillAmount = infektion / 100f;
         }
 
     }
@@ -47,17 +58,13 @@ public class PlagueController : MonoBehaviour
         GameObject plague = GameObject.FindWithTag("Collision");
         health = 100;
         healthBar.GetComponent<Image>().fillAmount = health;
-        //plague.SetActive(false);
-        coroutine = StartCo(plague, 10f);
-        StartCoroutine(coroutine);
+        StartCoroutine(StartCo(plague, 30f));
     }
 
     IEnumerator StartCo(GameObject plague, float waitSeconds)
     {
-        Debug.Log("COROUTINE STARTED");
         plague.SetActive(false);
         yield return new WaitForSeconds (waitSeconds);
-        Debug.Log("COROUTINE ENDED");
         plague.SetActive(true);
     }
 }
