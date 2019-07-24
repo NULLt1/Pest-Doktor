@@ -35,7 +35,6 @@ namespace LocationBasedGame
 
             if (databaseManager.playerNameExists())
             {
-                Debug.Log("Name exists");
                 NameOverlay.gameObject.SetActive(false);
                 nameInput.gameObject.SetActive(false);
                 ButtonLos.gameObject.SetActive(false);

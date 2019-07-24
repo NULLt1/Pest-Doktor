@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using ItemN;
 
-public class ReagentButtonSpawn : MonoBehaviour
+public class ReagentController : MonoBehaviour
 {
     Vector2[] buttonPosition = new Vector2[3];
     int positionCounter = 0;
@@ -41,18 +41,18 @@ public class ReagentButtonSpawn : MonoBehaviour
     public void CreateButton(int index)
     {
         Item item = itemProvider.getReagentItem(index);
-        GameObject button = new GameObject();
-        button.tag = "Reagent";
-        button.AddComponent<Button>();
-        button.AddComponent<Image>();
-        button.AddComponent<Shadow>();
-        button.GetComponent<Image>().sprite = item.sprite;
-        button.name = item.name;
-        button.GetComponent<RectTransform>().sizeDelta = new Vector2(190, 190);
-        button.transform.SetParent(GameObject.Find("ReagentUI").transform);
-        button.transform.localPosition = buttonPosition[positionCounter++];
-        button.GetComponent<Button>().onClick.AddListener(() => AddItem(item));
-        button.GetComponent<Button>().onClick.AddListener(() => DestroyButton(button));
+        GameObject buttonGameobject = new GameObject();
+        buttonGameobject.tag = "Reagent";
+        buttonGameobject.AddComponent<Button>();
+        buttonGameobject.AddComponent<Image>();
+        buttonGameobject.AddComponent<Shadow>();
+        buttonGameobject.GetComponent<Image>().sprite = item.sprite;
+        buttonGameobject.name = item.name;
+        buttonGameobject.GetComponent<RectTransform>().sizeDelta = new Vector2(190, 190);
+        buttonGameobject.transform.SetParent(GameObject.Find("ReagentUI").transform);
+        buttonGameobject.transform.localPosition = buttonPosition[positionCounter++];
+        buttonGameobject.GetComponent<Button>().onClick.AddListener(() => AddItem(item));
+        buttonGameobject.GetComponent<Button>().onClick.AddListener(() => DestroyButton(buttonGameobject));
     }
 
     private void AddItem(Item item)

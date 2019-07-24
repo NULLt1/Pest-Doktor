@@ -3068,7 +3068,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2a77dee5d17b445bcf1a329e022d8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetDatabaseFlag: 0
 --- !u!1 &1129046562
 GameObject:
   m_ObjectHideFlags: 0
@@ -3673,6 +3672,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927719225275958499, guid: fcf4276230787ed4e9c46d863ec78c8a,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerUIExitButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcf4276230787ed4e9c46d863ec78c8a, type: 3}

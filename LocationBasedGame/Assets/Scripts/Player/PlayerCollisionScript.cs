@@ -9,7 +9,7 @@ public class PlayerCollisionScript : MonoBehaviour
     private static Canvas reagentUI;
     private static Canvas seucheUI;
     private Button enterButton;
-    private ReagentButtonSpawn reagentButtonSpawn;
+    private ReagentController reagentController;
 
     void Start()
     {
@@ -20,7 +20,7 @@ public class PlayerCollisionScript : MonoBehaviour
         if (GameObject.Find("ReagentUI") != null)
         {
             reagentUI = GameObject.Find("ReagentUI").GetComponent<Canvas>();
-            reagentButtonSpawn = GameObject.Find("ReagentUI").GetComponent<ReagentButtonSpawn>();
+            reagentController = GameObject.Find("ReagentUI").GetComponent<ReagentController>();
         }
 
         if (GameObject.Find("SeucheUI") != null)
@@ -85,7 +85,7 @@ public class PlayerCollisionScript : MonoBehaviour
         }
         else
         {
-            reagentButtonSpawn.spawnReagentButtons();
+            reagentController.spawnReagentButtons();
             reagentUI.enabled = true;
         }
     }

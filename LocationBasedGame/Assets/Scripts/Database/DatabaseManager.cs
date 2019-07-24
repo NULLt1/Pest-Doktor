@@ -42,7 +42,6 @@ namespace DatabaseN
                 {
                     nameBool = true;
                 }
-                Debug.Log("Name Bool: " + nameBool);
             }
             savegameDatabase.close();
             return nameBool;
@@ -121,9 +120,7 @@ namespace DatabaseN
                                         reader[2].ToString(),
                                         reader[3].ToString());
                 itemList.Add(item);
-                Debug.Log(item.name);
             }
-            Debug.Log(itemList);
             itemDatabase.close();
             return itemList;
         }
