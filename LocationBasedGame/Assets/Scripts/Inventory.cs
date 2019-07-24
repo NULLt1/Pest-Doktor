@@ -29,7 +29,7 @@ public class Inventory : MonoBehaviour
             slots.Add(new Item());
             inventory.Add(new Item());
         }
-        itemProvider = GameObject.FindGameObjectWithTag("ItemDatabase").GetComponent<ItemProvider>();
+        itemProvider = GameObject.FindGameObjectWithTag("ItemProvider").GetComponent<ItemProvider>();
         databaseManager = FindObjectOfType<DatabaseManager>();
         addItemsFormSavegame();
     }
@@ -58,7 +58,6 @@ public class Inventory : MonoBehaviour
 
     public void addItemFromSavegame(int id)
     {
-        Debug.Log(id);
         for (int i = 0; i < inventory.Count; i++)
         {
             if (inventory[i].name == null)
@@ -97,6 +96,7 @@ public class Inventory : MonoBehaviour
     {
         if (Input.GetButtonDown("Inventory"))
         {
+            Debug.Log("TEST");
             showInventory = !showInventory;
         }
     }

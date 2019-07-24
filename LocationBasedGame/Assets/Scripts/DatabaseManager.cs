@@ -77,8 +77,9 @@ public class DatabaseManager : MonoBehaviour
                                     reader[2].ToString(),
                                     reader[3].ToString());
             itemList.Add(item);
+            Debug.Log(item.name);
         }
-
+        Debug.Log(itemList);
         itemDatabase.close();
         return itemList;
     }

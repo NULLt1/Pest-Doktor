@@ -14,6 +14,11 @@ public class ItemProvider : MonoBehaviour
     }
     public List<Item> getItems()
     {
+        Debug.Log("CALLED");
+        foreach (Item item in items)
+        {
+            Debug.Log(item.name);
+        }
         return items;
     }
 

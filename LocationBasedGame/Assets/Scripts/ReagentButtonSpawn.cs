@@ -10,9 +10,9 @@ public class ReagentButtonSpawn : MonoBehaviour
 
     void Start()
     {
-        buttonPosition[0] = new Vector2(-69, -127);
-        buttonPosition[1] = new Vector2(-111, 108);
-        buttonPosition[2] = new Vector2(144, 54);
+        buttonPosition[0] = new Vector2(-50, -226);
+        buttonPosition[1] = new Vector2(-150, 169);
+        buttonPosition[2] = new Vector2(144, 50);
 
         if (GameObject.Find("ItemProvider") != null)
         {
@@ -43,9 +43,10 @@ public class ReagentButtonSpawn : MonoBehaviour
         button.tag = "Reagent";
         button.AddComponent<Button>();
         button.AddComponent<Image>();
+        button.AddComponent<Shadow>();
         button.GetComponent<Image>().sprite = item.sprite;
         button.name = item.name;
-        button.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100);
+        button.GetComponent<RectTransform>().sizeDelta = new Vector2(190, 190);
         button.transform.SetParent(GameObject.Find("ReagentUI").transform);
         button.transform.localPosition = buttonPosition[positionCounter++];
         button.GetComponent<Button>().onClick.AddListener(() => AddItem(item));
