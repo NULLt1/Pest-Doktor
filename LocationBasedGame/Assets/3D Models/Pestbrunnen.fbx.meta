@@ -1,0 +1,213 @@
+fileFormatVersion: 2
+guid: 17b00771640165344a0551305041ce93
+ModelImporter:
+  serializedVersion: 25
+  internalIDToNameTable:
+  - first:
+      74: 2551951797125943415
+    second: Kranz|Action
+  - first:
+      74: 7443674762008919700
+    second: Kranz|Action.001
+  - first:
+      74: -6355187582617612772
+    second: Kranz|Action.002
+  - first:
+      74: 8157862994599869067
+    second: "Kranz|Fl\xE4che.001Action.001"
+  - first:
+      74: -6541224556071562621
+    second: Kranz|KeyAction
+  - first:
+      74: -6069907770992996475
+    second: Kranz|SeeAction
+  - first:
+      74: 8768991056930997073
+    second: Schaedel|Action
+  - first:
+      74: -6058032931787754522
+    second: Schaedel|Action.001
+  - first:
+      74: 443591613501958397
+    second: Schaedel|Action.002
+  - first:
+      74: -2863558162474123988
+    second: "Schaedel|Fl\xE4che.001Action.001"
+  - first:
+      74: 3209973622405957466
+    second: Schaedel|KeyAction
+  - first:
+      74: -4281633847306689441
+    second: Schaedel|SeeAction
+  - first:
+      74: 4025758431277453334
+    second: Knochenlinks|Action
+  - first:
+      74: 8867952989956537061
+    second: Knochenlinks|Action.001
+  - first:
+      74: 7765041261115899002
+    second: Knochenlinks|Action.002
+  - first:
+      74: 324947574598410581
+    second: "Knochenlinks|Fl\xE4che.001Action.001"
+  - first:
+      74: 3664200259083221495
+    second: Knochenlinks|KeyAction
+  - first:
+      74: -7586945538619419677
+    second: Knochenlinks|SeeAction
+  - first:
+      74: 5585366032951453017
+    second: Knocheenrechts|Action
+  - first:
+      74: -7246459944805259514
+    second: Knocheenrechts|Action.001
+  - first:
+      74: -5380827247240870189
+    second: Knocheenrechts|Action.002
+  - first:
+      74: -3548590967742436668
+    second: "Knocheenrechts|Fl\xE4che.001Action.001"
+  - first:
+      74: 7552783721237492576
+    second: Knocheenrechts|KeyAction
+  - first:
+      74: 8796681667115378402
+    second: Knocheenrechts|SeeAction
+  - first:
+      74: 2062374707217585983
+    second: See|Action
+  - first:
+      74: 1319893186985336795
+    second: See|Action.001
+  - first:
+      74: 228274480561086401
+    second: See|Action.002
+  - first:
+      74: 5531211409982147344
+    second: "See|Fl\xE4che.001Action.001"
+  - first:
+      74: -5945730793916337759
+    second: See|KeyAction
+  - first:
+      74: 7290180611481470799
+    second: See|SeeAction
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: See
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 1
+    animationCompression: 0
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: See|SeeAction
+      takeName: See|SeeAction
+      internalID: 7290180611481470799
+      firstFrame: 0
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
