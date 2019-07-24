@@ -8,6 +8,7 @@ TagManager:
   - ItemDatabase
   - Collision
   - Reagent
+  - Seuche
   layers:
   - Default
   - TransparentFX

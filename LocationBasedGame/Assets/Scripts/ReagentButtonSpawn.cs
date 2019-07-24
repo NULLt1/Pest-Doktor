@@ -46,7 +46,7 @@ public class ReagentButtonSpawn : MonoBehaviour
         button.GetComponent<Image>().sprite = item.sprite;
         button.name = item.name;
         button.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100);
-        button.transform.SetParent(GameObject.Find("OreUI").transform);
+        button.transform.SetParent(GameObject.Find("ReagentUI").transform);
         button.transform.localPosition = buttonPosition[positionCounter++];
         button.GetComponent<Button>().onClick.AddListener(() => AddItem(item));
         button.GetComponent<Button>().onClick.AddListener(() => DestroyButton(button));

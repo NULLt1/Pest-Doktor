@@ -6,21 +6,30 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCollisionScript : MonoBehaviour
 {
-    private static Canvas oreUI;
+    private static Canvas reagentUI;
+    private static Canvas seucheUI;
     private Button enterButton;
     private ReagentButtonSpawn reagentButtonSpawn;
+
     void Start()
     {
         if (GameObject.Find("EnterButton") != null)
         {
             enterButton = GameObject.Find("EnterButton").GetComponent<Button>();
         }
-        if (GameObject.Find("OreUI") != null)
+        if (GameObject.Find("ReagentUI") != null)
         {
-            oreUI = GameObject.Find("OreUI").GetComponent<Canvas>();
-            reagentButtonSpawn = GameObject.Find("OreUI").GetComponent<ReagentButtonSpawn>();
+            reagentUI = GameObject.Find("ReagentUI").GetComponent<Canvas>();
+            reagentButtonSpawn = GameObject.Find("ReagentUI").GetComponent<ReagentButtonSpawn>();
         }
-        oreUI.enabled = false;
+
+        if (GameObject.Find("SeucheUI") != null)
+        {
+            seucheUI = GameObject.Find("SeucheUI").GetComponent<Canvas>();
+            //reagentButtonSpawn = GameObject.Find("SeucheUI").GetComponent<ReagentButtonSpawn>();
+        }
+        reagentUI.enabled = false;
+        seucheUI.enabled = false;
     }
 
     void Update()
@@ -29,15 +38,26 @@ public class PlayerCollisionScript : MonoBehaviour
 
     void OnCollisionStay(Collision collision)
     {
-        if ((Input.GetMouseButtonDown(0) || Input.touchCount > 0) && oreUI.enabled == false)
+        if ((Input.GetMouseButtonDown(0) || Input.touchCount > 0) && reagentUI.enabled == false && seucheUI.enabled == false)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
+                Debug.Log(hit.transform.gameObject);
+
                 if (hit.transform.gameObject.GetComponent<POICollisionScript>().active)
                 {
-                    toggleCanvas();
+                    if(hit.transform.gameObject.name == "Reagent(Clone)")
+                    {
+                        Debug.Log("FIRE REAGENT");
+                        toggleCanvas();
+                    }
+                    if (hit.transform.gameObject.name == "Pestbrunnen(Clone)")
+                    {
+                        Debug.Log("FIRE SEUCHE");
+                        toggleSeucheCanvas();
+                    }
                 }
             }
         }
@@ -45,22 +65,41 @@ public class PlayerCollisionScript : MonoBehaviour
 
     void OnCollisionExit(Collision other)
     {
-        if (oreUI.enabled)
+        
+        if (reagentUI.enabled)
         {
             toggleCanvas();
+        }
+        if (seucheUI.enabled)
+        {
+            Debug.Log("EXIT");
+            toggleSeucheCanvas();
         }
     }
 
     public void toggleCanvas()
     {
-        if (oreUI.enabled)
+        if (reagentUI.enabled)
         {
-            oreUI.enabled = false;
+            reagentUI.enabled = false;
         }
         else
         {
             reagentButtonSpawn.spawnReagentButtons();
-            oreUI.enabled = true;
+            reagentUI.enabled = true;
+        }
+    }
+
+    public void toggleSeucheCanvas()
+    {
+        Debug.Log("Toggle Canvas called on: " + seucheUI + ", Status: " + seucheUI.enabled);
+        if (seucheUI.enabled)
+        {
+            seucheUI.enabled = false;
+        }
+        else
+        {
+            seucheUI.enabled = true;
         }
     }
 
