@@ -51,7 +51,7 @@ public class DatabaseManager : MonoBehaviour
         ItemDatabase itemDatabase = new ItemDatabase();
         itemDatabase.addData(new ItemEntity("0", "Alraune", "Mandragora", "Heilpflanze"));
         itemDatabase.addData(new ItemEntity("1", "Tollkirsche", "Atropus belladonna", "Heilpflanze"));
-        itemDatabase.addData(new ItemEntity("2", "Wachholder", "Juniperus sabina", "Heilpflanze"));
+        itemDatabase.addData(new ItemEntity("2", "Wacholder", "Juniperus sabina", "Heilpflanze"));
         itemDatabase.addData(new ItemEntity("3", "Fliegenpilz", "Juniperus sabina", "Pilz"));
         itemDatabase.addData(new ItemEntity("4", "Morchel", "Juniperus sabina", "Pilz"));
         itemDatabase.addData(new ItemEntity("5", "Kiefernschwamm", "Juniperus sabina", "Pilz"));
@@ -61,8 +61,8 @@ public class DatabaseManager : MonoBehaviour
     public void newItem(Item item)
     {
         SavegameDatabase savegameDatabase = new SavegameDatabase();
-        savegameDatabase.incrementAmount(item.itemName);
-        Debug.Log(item.itemName);
+        savegameDatabase.incrementAmount(item.name);
+        Debug.Log(item.name);
     }
 
     public static List<Item> getAllItems()

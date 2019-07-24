@@ -5,21 +5,21 @@ using UnityEngine;
 [System.Serializable]
 public class Item
 {
-    public int itemId;
-    public string itemName;
-    public string itemLatinName;
-    public string itemDescription;
-    public Texture2D itemIcon;
-    public Sprite itemSprite;
+    public int id;
+    public string name;
+    public string latinName;
+    public string description;
+    public Texture2D icon;
+    public Sprite sprite;
 
     public Item(int itemId, string itemName, string itemLatinName, string itemDescription)
     {
-        this.itemId = itemId;
-        this.itemName = itemName;
-        this.itemLatinName = itemLatinName;
-        this.itemDescription = itemDescription;
-        this.itemIcon = Resources.Load<Texture2D>("Grafics/reagent");
-        this.itemSprite = Resources.Load<Sprite>("Grafics/reagent");
+        this.id = itemId;
+        this.name = itemName;
+        this.latinName = itemLatinName;
+        this.description = itemDescription;
+        this.icon = Resources.Load<Texture2D>("Grafics/" + name);
+        this.sprite = Resources.Load<Sprite>("Grafics/" + name);
     }
 
     public Item()

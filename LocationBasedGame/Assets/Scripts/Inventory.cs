@@ -61,13 +61,13 @@ public class Inventory : MonoBehaviour
         Debug.Log(id);
         for (int i = 0; i < inventory.Count; i++)
         {
-            if (inventory[i].itemName == null)
+            if (inventory[i].name == null)
             {
                 inventory[i] = itemProvider.items[id];
 
                 for (int j = 0; j < itemProvider.items.Count; j++)
                 {
-                    if (itemProvider.items[j].itemId == id)
+                    if (itemProvider.items[j].id == id)
                     {
                         inventory[i] = itemProvider.items[j];
                     }
@@ -89,7 +89,7 @@ public class Inventory : MonoBehaviour
         }
         if (draggingItem)
         {
-            GUI.DrawTexture(new Rect(Event.current.mousePosition.x, Event.current.mousePosition.y, 40, 40), draggedItem.itemIcon);
+            GUI.DrawTexture(new Rect(Event.current.mousePosition.x, Event.current.mousePosition.y, 40, 40), draggedItem.icon);
         }
     }
 
@@ -105,7 +105,7 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < inventory.Count; i++)
         {
-            if (inventory[i].itemId == id)
+            if (inventory[i].id == id)
             {
                 inventory[i] = new Item();
                 break;
@@ -124,9 +124,9 @@ public class Inventory : MonoBehaviour
                 Rect slotRect = new Rect(x * 90, y * 90, 90, 90);
                 GUI.Box(new Rect(x * 90, y * 90, 90, 90), "", skin.GetStyle("Slot"));
                 slots[i] = inventory[i];
-                if (slots[i].itemName != null)
+                if (slots[i].name != null)
                 {
-                    GUI.DrawTexture(slotRect, slots[i].itemIcon);
+                    GUI.DrawTexture(slotRect, slots[i].icon);
                     if (slotRect.Contains(e.mousePosition))
                     {
                         tooltip = CreateTooltip(slots[i]);
@@ -157,7 +157,7 @@ public class Inventory : MonoBehaviour
 
     string CreateTooltip(Item item)
     {
-        tooltip = "<color=#000000>" + item.itemName + "</color>\n\n" + "<color=#f12345>" + item.itemDescription + "</color>";
+        tooltip = "<color=#000000>" + item.name + "</color>\n\n" + "<color=#f12345>" + item.description + "</color>";
         return tooltip;
     }
 
@@ -165,13 +165,13 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < inventory.Count; i++)
         {
-            if (inventory[i].itemName == null)
+            if (inventory[i].name == null)
             {
                 inventory[i] = itemProvider.items[id];
 
                 for (int j = 0; j < itemProvider.items.Count; j++)
                 {
-                    if (itemProvider.items[j].itemId == id)
+                    if (itemProvider.items[j].id == id)
                     {
                         inventory[i] = itemProvider.items[j];
                     }
@@ -188,7 +188,7 @@ public class Inventory : MonoBehaviour
 
         for (int i = 0; i < inventory.Count; i++)
         {
-            result = inventory[i].itemId == id;
+            result = inventory[i].id == id;
             if (result)
             {
                 break;

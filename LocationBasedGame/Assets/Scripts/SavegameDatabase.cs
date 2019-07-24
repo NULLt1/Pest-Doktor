@@ -18,7 +18,7 @@ namespace DataBank
         private const String keyInfection = "infection";
         private const String keyAlrauneAmount = "alrauneAmount";
         private const String keyTollkirscheAmount = "tollkirscheAmount";
-        private const String keyWachholderAmount = "wachholderAmount";
+        private const String keyWachholderAmount = "wacholderAmount";
         private const String keyFliegenpilzAmount = "fliegenpilzAmount";
         private const String keyMorchelAmount = "morchelAmount";
         private const String keyKiefernschwammAmount = "kiefernschwammAmount";

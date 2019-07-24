@@ -43,8 +43,8 @@ public class ReagentButtonSpawn : MonoBehaviour
         button.tag = "Reagent";
         button.AddComponent<Button>();
         button.AddComponent<Image>();
-        button.GetComponent<Image>().sprite = item.itemSprite;
-        button.name = item.itemName;
+        button.GetComponent<Image>().sprite = item.sprite;
+        button.name = item.name;
         button.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100);
         button.transform.SetParent(GameObject.Find("OreUI").transform);
         button.transform.localPosition = buttonPosition[positionCounter++];
@@ -54,7 +54,7 @@ public class ReagentButtonSpawn : MonoBehaviour
 
     private void AddItem(Item item)
     {
-        GameObject.Find("Inventory").GetComponent<Inventory>().AddItem(item.itemId);
+        GameObject.Find("Inventory").GetComponent<Inventory>().AddItem(item.id);
     }
 
     private void DestroyButton(GameObject button)
