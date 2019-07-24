@@ -16,14 +16,19 @@ public class PlagueController : MonoBehaviour
             seucheUI = GameObject.Find("SeucheUI").GetComponent<Canvas>();
             healthBar = GameObject.Find("Bar").GetComponent<Image>();
             infektBar = GameObject.Find("InfektionBar").GetComponent<Image>();
-            mainInfektBar = GameObject.Find("MainInfektBar").GetComponent<Image>();
+            mainInfektBar = GameObject.Find("MainInfektionBar").GetComponent<Image>();
         }
 
         health = 100;
-        healthFaktor = 0.05f;
         infektion = 0;
+
+        healthFaktor = 0.05f;
         infektFaktor = 0.5f;
         infektHealFaktor = 0.1f;
+
+        healthBar.GetComponent<Image>().fillAmount = 100;
+        infektBar.GetComponent<Image>().fillAmount = 0;
+        mainInfektBar.GetComponent<Image>().fillAmount = 0;
     }
 
     // Update is called once per frame
@@ -37,12 +42,12 @@ public class PlagueController : MonoBehaviour
             infektBar.GetComponent<Image>().fillAmount = infektion / 100f;
             mainInfektBar.GetComponent<Image>().fillAmount = infektion / 100f;
 
-            if (health == 0)
+            if (health <= 0)
             {
                 resetAndHidePlague();
                 GameObject.Find("Player").GetComponent<PlayerCollisionScript>().toggleSeucheCanvas();
             }
-            if(infektion == 100) {
+            if(infektion >= 100) {
                 GameObject.Find("Player").GetComponent<PlayerCollisionScript>().toggleSeucheCanvas();
             }
         } else {
