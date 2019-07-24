@@ -7,6 +7,8 @@ public class PlayerUIScript : MonoBehaviour
     Vector2[] reagentPosition = new Vector2[6];
     int positionCounter = 0;
     private DatabaseManager databaseManager;
+    private static Canvas playerUICanvas;
+
     private ItemProvider itemProvider;
     public GameObject playerUIReagentPrefab;
 
@@ -22,9 +24,13 @@ public class PlayerUIScript : MonoBehaviour
         reagentPosition[5] = new Vector2(190, -585);
         databaseManager = FindObjectOfType<DatabaseManager>();
         itemProvider = FindObjectOfType<ItemProvider>();
-
         items = itemProvider.getItems();
         drawItemIcons();
+        if (GameObject.Find("PlayerUI") != null)
+        {
+            playerUICanvas = GameObject.Find("PlayerUI").GetComponent<Canvas>();
+        }
+        playerUICanvas.enabled = false;
     }
 
     void Update()
@@ -48,4 +54,10 @@ public class PlayerUIScript : MonoBehaviour
         playerUIReagent.transform.SetParent(GameObject.Find("PlayerUI").transform);
     }
 
+
+    public void togglePlayerUICanvas()
+    {
+        Debug.Log("HELLLOOO");
+        playerUICanvas.enabled=!playerUICanvas.enabled;
+    }
 }
