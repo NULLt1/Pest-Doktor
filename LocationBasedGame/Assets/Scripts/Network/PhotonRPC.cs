@@ -1,6 +1,8 @@
 ﻿using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
+using Photon.Realtime;
 
 public class PhotonRPC : MonoBehaviourPun
 {
@@ -33,8 +35,10 @@ public class PhotonRPC : MonoBehaviourPun
     }
 
     [PunRPC]
-    void NwRpcReceive(string blub, PhotonMessageInfo info)
+    void NwRpcReceive(int id, string location, PhotonMessageInfo info)
     {
-        Debug.Log(blub);
+        Debug.Log(id);
+        Debug.Log(location);
+
     }
 }

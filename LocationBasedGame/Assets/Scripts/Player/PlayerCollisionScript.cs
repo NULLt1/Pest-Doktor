@@ -42,6 +42,7 @@ public class PlayerCollisionScript : MonoBehaviour
 
     void OnCollisionStay(Collision collision)
     {
+        Debug.Log("STAY STAY");
         if ((Input.GetMouseButtonDown(0) || Input.touchCount > 0) && reagentUI.enabled == false && plagueUI.enabled == false)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using Mapbox.Utils;
 using Mapbox.Unity.Map;
 using Mapbox.Unity.MeshGeneration.Factories;
@@ -25,14 +26,19 @@ public class SpawnPlagueOnMapScript : MonoBehaviour
 
     List<GameObject> spawnedObjects;
 
+    private float delay = 2f;
+    bool plagueUpdateFlag = false;
+
     void Start()
     {
         //Debug.Log(PhotonNetwork.IsConnected);
         //Debug.Log(PhotonNetwork.IsMasterClient);
-
+        //PhotonNetwork.LoadLevel(1);
         if (PhotonNetwork.IsMasterClient)
         {
-            spawnPlague();
+            //spawnPlague();
+            StartCoroutine(delayedSpawn());
+
         }
     }
 
@@ -51,17 +57,20 @@ public class SpawnPlagueOnMapScript : MonoBehaviour
         for (int i = 0; i < locationStrings.Length; i++)
         {
             var locationString = locationStrings[i];
+            //sendPlagueSpawnRpc(i, locationString);
             locations[i] = Conversions.StringToLatLon(locationString);
             var instance = Instantiate(markerPrefab);
+            instance.GetComponent<PlagueController>().setPlagueAttribute(new PlagueAttribute(i, 100));
             instance.transform.localPosition = map.GeoToWorldPosition(locations[i], true);
             instance.transform.localScale = new Vector3(spawnScale, spawnScale, spawnScale);
             spawnedObjects.Add(instance);
+            //spawnPlague = false;
         }
     }
 
     private void updatePlaguePositon()
     {
-        if (PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient && plagueUpdateFlag == true)
         {
             int count = spawnedObjects.Count;
             for (int i = 0; i < count; i++)
@@ -72,5 +81,28 @@ public class SpawnPlagueOnMapScript : MonoBehaviour
                 spawnedObject.transform.localScale = new Vector3(spawnScale, spawnScale, spawnScale);
             }
         }
+    }
+
+    private IEnumerator delayedSpawn()
+    {
+        yield return new WaitForSeconds(2f);
+        spawnPlague();
+        plagueUpdateFlag = true;
+    }
+
+
+    public IEnumerator delayedSpawn(int health)
+    {
+        Debug.Log("delayedSpawn client");
+        yield return new WaitForSeconds(2f);
+        spawnPlague();
+        plagueUpdateFlag = true;
+    }
+
+
+    public void setLocationString(string location)
+    {
+        locationStrings[0] = location;
+        Debug.Log(locationStrings[0]);
     }
 }

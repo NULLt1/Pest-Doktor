@@ -49,7 +49,6 @@ public class PlagueUIController : MonoBehaviour
     {
         if (plagueUI.enabled)
         {
-            Debug.Log("ENABLED");
             health -= healthFaktor;
             infektion += infektFaktor;
             healthBar.GetComponent<Image>().fillAmount = health / 100f;
@@ -68,7 +67,6 @@ public class PlagueUIController : MonoBehaviour
         }
         else
         {
-            Debug.Log("DISABLED");
             if (infektion > 0)
             {
                 Debug.Log(infektion);
