@@ -66,7 +66,7 @@ public class ReagentUIController : MonoBehaviour
         if (GameObject.FindGameObjectsWithTag("Reagent").Length == 1)
         {
             randomizeAndHideReagent();
-            GameObject.Find("Player").GetComponent<PlayerCollisionScript>().toggleCanvas();
+            GameObject.Find("Player").GetComponent<PlayerCollisionScript>().toggleReagentCanvas();
         }
     }
 

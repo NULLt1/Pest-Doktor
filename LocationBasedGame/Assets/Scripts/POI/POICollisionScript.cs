@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// 0t1
 public class POICollisionScript : MonoBehaviour
 {
+    private RPCController rpCController;
     public GameObject collisionRing;
     public bool active { get; set; }
 
@@ -22,12 +23,10 @@ public class POICollisionScript : MonoBehaviour
 
     void OnCollisionStay(Collision collision)
     {
-
         if (collision.gameObject.tag == "Player")
         {
             this.gameObject.tag = "Collision";
             active = true;
-            //Debug.Log("Active: " +active);
             collisionRing.SetActive(true);
         }
     }

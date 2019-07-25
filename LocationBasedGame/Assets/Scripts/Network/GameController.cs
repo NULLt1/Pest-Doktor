@@ -1,14 +1,11 @@
 ﻿using Photon.Pun;
 using UnityEngine.SceneManagement;
 using Photon.Realtime;
-
+// 0t1
 namespace LocationBasedGame
 {
     public class GameController : MonoBehaviourPunCallbacks
     {
-        public PlayerNetwork PlayerPrefab;
-        public PlayerNetwork LocalPlayer;
-
         private void Awake()
         {
             if (!PhotonNetwork.IsConnected)
@@ -20,13 +17,7 @@ namespace LocationBasedGame
 
         void Start()
         {
-            //PlayerNetwork.RefreshInstance(ref LocalPlayer, PlayerPrefab);
-        }
 
-        public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
-        {
-           // PlayerNetwork.RefreshInstance(ref LocalPlayer, PlayerPrefab);
-           // Debug.Log("New Player");
         }
     }
 }

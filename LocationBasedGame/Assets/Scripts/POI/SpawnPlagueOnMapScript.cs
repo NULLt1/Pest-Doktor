@@ -7,7 +7,7 @@ using Mapbox.Unity.Utilities;
 using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
-
+// 0t1
 public class SpawnPlagueOnMapScript : MonoBehaviour
 {
     [SerializeField]
@@ -31,14 +31,9 @@ public class SpawnPlagueOnMapScript : MonoBehaviour
 
     void Start()
     {
-        //Debug.Log(PhotonNetwork.IsConnected);
-        //Debug.Log(PhotonNetwork.IsMasterClient);
-        //PhotonNetwork.LoadLevel(1);
         if (PhotonNetwork.IsMasterClient)
         {
-            //spawnPlague();
             StartCoroutine(delayedSpawn());
-
         }
     }
 
@@ -57,14 +52,12 @@ public class SpawnPlagueOnMapScript : MonoBehaviour
         for (int i = 0; i < locationStrings.Length; i++)
         {
             var locationString = locationStrings[i];
-            //sendPlagueSpawnRpc(i, locationString);
             locations[i] = Conversions.StringToLatLon(locationString);
             var instance = Instantiate(markerPrefab);
             instance.GetComponent<PlagueController>().setPlagueAttribute(new PlagueAttribute(i, 100));
             instance.transform.localPosition = map.GeoToWorldPosition(locations[i], true);
             instance.transform.localScale = new Vector3(spawnScale, spawnScale, spawnScale);
             spawnedObjects.Add(instance);
-            //spawnPlague = false;
         }
     }
 
@@ -100,9 +93,14 @@ public class SpawnPlagueOnMapScript : MonoBehaviour
     }
 
 
-    public void setLocationString(string location)
+    public void setLocationString(int id, string location)
     {
-        locationStrings[0] = location;
-        Debug.Log(locationStrings[0]);
+        locationStrings[id] = location;
+        Debug.Log(locationStrings[id]);
+    }
+
+    public string[] getLocations()
+    {
+        return locationStrings;
     }
 }

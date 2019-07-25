@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+// 0t1
 public class PlayerCollisionScript : MonoBehaviour
 {
     private static Canvas reagentUI, plagueUI, mainUI;
@@ -48,20 +48,15 @@ public class PlayerCollisionScript : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                //Debug.Log(hit.transform.gameObject);
-
                 if (hit.transform.gameObject.GetComponent<POICollisionScript>().active)
                 {
-                    if(hit.transform.gameObject.name == "Reagent(Clone)")
+                    if (hit.transform.gameObject.name == "Reagent(Clone)")
                     {
-                        //Debug.Log("FIRE REAGENT");
-                        toggleCanvas();
+                        toggleReagentCanvas();
                     }
                     if (hit.transform.gameObject.name == "Plague(Clone)")
                     {
-
-                        //Debug.Log("FIRE SEUCHE");
-                        toggleSeucheCanvas();
+                        togglePlagueCanvas();
                     }
                 }
             }
@@ -70,19 +65,18 @@ public class PlayerCollisionScript : MonoBehaviour
 
     void OnCollisionExit(Collision other)
     {
-        
+
         if (reagentUI.enabled)
         {
-            toggleCanvas();
+            toggleReagentCanvas();
         }
         if (plagueUI.enabled)
         {
-            //Debug.Log("EXIT");
-            toggleSeucheCanvas();
+            togglePlagueCanvas();
         }
     }
 
-    public void toggleCanvas()
+    public void toggleReagentCanvas()
     {
         if (reagentUI.enabled)
         {
@@ -97,9 +91,8 @@ public class PlayerCollisionScript : MonoBehaviour
         }
     }
 
-    public void toggleSeucheCanvas()
+    public void togglePlagueCanvas()
     {
-        //Debug.Log("Toggle Canvas called on: " + seucheUI + ", Status: " + seucheUI.enabled);
         if (plagueUI.enabled)
         {
             plagueUI.enabled = false;
@@ -111,5 +104,4 @@ public class PlayerCollisionScript : MonoBehaviour
             mainUI.enabled = false;
         }
     }
-
 }

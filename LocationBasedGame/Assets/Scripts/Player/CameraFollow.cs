@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-
+// 0t1
 public class CameraFollow : MonoBehaviour
 {
     public GameObject tPlayer;
@@ -19,7 +19,6 @@ public class CameraFollow : MonoBehaviour
     {
         if (tPlayer == null && GameObject.FindWithTag("Player") != null)
         {
-            Debug.Log(GameObject.FindWithTag("Player"));
             tPlayer = GameObject.FindWithTag("Player");
             if (tPlayer != null)
             {

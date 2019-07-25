@@ -4,7 +4,7 @@ using UnityEngine;
 using DatabaseN;
 using ItemN;
 using UnityEngine.UI;
-
+// 0t1
 public class PlayerUIScript : MonoBehaviour
 {
     Vector2[] reagentPosition = new Vector2[6];
@@ -63,7 +63,6 @@ public class PlayerUIScript : MonoBehaviour
 
     public void togglePlayerUICanvas()
     {
-        Debug.Log("HELLLOOO");
         playerUICanvas.enabled = !playerUICanvas.enabled;
     }
 }

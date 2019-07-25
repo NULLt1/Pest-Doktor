@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// 0t1
 [System.Serializable]
 public class PlagueAttribute
 {
@@ -9,7 +9,6 @@ public class PlagueAttribute
     private int health;
     public PlagueAttribute(int id, int health)
     {
-        Debug.Log("Konstruktor");
         this.id = id;
         this.health = health;
     }
@@ -21,5 +20,15 @@ public class PlagueAttribute
     public int getHealth()
     {
         return health;
+    }
+
+    public void setHealth(int health)
+    {
+        this.health = health;
+    }
+
+    public void decrementBy(int amount)
+    {
+        health = health - amount;
     }
 }

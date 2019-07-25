@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using ItemN;
-
+// 0t1
 public class ReagentController : MonoBehaviour
 {
     Vector2[] buttonPosition = new Vector2[3];
@@ -66,7 +66,7 @@ public class ReagentController : MonoBehaviour
         if (GameObject.FindGameObjectsWithTag("Reagent").Length == 1)
         {
             randomizeAndHideReagent();
-            GameObject.Find("Player").GetComponent<PlayerCollisionScript>().toggleCanvas();
+            GameObject.Find("Player").GetComponent<PlayerCollisionScript>().toggleReagentCanvas();
         }
     }
 
