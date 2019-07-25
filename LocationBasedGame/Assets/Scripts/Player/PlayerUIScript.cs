@@ -4,7 +4,7 @@ using UnityEngine;
 using DatabaseN;
 using ItemN;
 using UnityEngine.UI;
-// 0t1
+
 public class PlayerUIScript : MonoBehaviour
 {
     Vector2[] reagentPosition = new Vector2[6];
@@ -30,7 +30,7 @@ public class PlayerUIScript : MonoBehaviour
         databaseManager = FindObjectOfType<DatabaseManager>();
         itemProvider = FindObjectOfType<ItemProvider>();
         items = itemProvider.getItems();
-        drawItemIcons();
+        //drawItemIcons(); Generic
 
         playerUI = GameObject.Find("PlayerUI");
         mainUI = GameObject.Find("MainUI").GetComponent<Canvas>();
@@ -52,26 +52,34 @@ public class PlayerUIScript : MonoBehaviour
 
     }
 
-    private void drawItemIcons()
-    {
-        foreach (Item item in items)
+    /*
+        private void drawItemIcons()
         {
-            instantiatePlayerUIReagent(item);
+            foreach (Item item in items)
+            {
+                instantiatePlayerUIReagent(item);
+            }
         }
-    }
 
-    private void instantiatePlayerUIReagent(Item item)
+        private void instantiatePlayerUIReagent(Item item)
+        {
+            GameObject playerUIReagent = Instantiate(playerUIReagentPrefab);
+            playerUIReagent.transform.SetParent(GameObject.Find("PlayerUI").transform);
+        }
+     */
+
+    public void togglePageTwo()
     {
-        GameObject playerUIReagent = Instantiate(playerUIReagentPrefab);
-        playerUIReagent.transform.SetParent(GameObject.Find("PlayerUI").transform);
-    }
-
-    public void togglePageTwo() {
         secondPage.enabled = !secondPage.enabled;
     }
 
     public void togglePlayerUICanvas()
     {
         playerUICanvas.enabled = !playerUICanvas.enabled;
+        if (playerUICanvas.enabled)
+        {
+            this.GetComponent<PlayerInventoryScript>().getAmountFromDatabase();
+            this.GetComponent<PlayerInventoryScript>().setAmountText();
+        }
     }
 }

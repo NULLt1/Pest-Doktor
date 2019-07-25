@@ -6,11 +6,12 @@ using DatabaseN;
 // 0t1
 public class PlagueController : MonoBehaviour
 {
+    private List<string> playerList;
     private RPCController rpCController;
     private PlagueAttribute plagueAttribute;
     void Start()
     {
-
+        playerList = new List<string>();
     }
 
     // Update is called once per frame
@@ -44,5 +45,20 @@ public class PlagueController : MonoBehaviour
     public void setHealth(int health)
     {
         plagueAttribute.setHealth(health);
+    }
+
+    public void AddPlayer(string name)
+    {
+        playerList.Add(name);
+    }
+
+    public List<string> getPlayerList()
+    {
+        return playerList;
+    }
+
+    public void resetPlayerNames()
+    {
+        playerList.Clear();
     }
 }

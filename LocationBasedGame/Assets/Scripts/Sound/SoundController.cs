@@ -21,7 +21,6 @@ public class SoundController : MonoBehaviour
 
     public void playSound()
     {
-        Debug.Log("PlaySound2");
         var random = Random.Range(1, 5);
         switch (random)
         {

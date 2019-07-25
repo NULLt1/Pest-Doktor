@@ -37,5 +37,6 @@ MonoBehaviour:
   - PlayerInsidePlague
   - ActualizePlagueHealth
   - PlagueHealthRPC
+  - PlayerInsidePlagueName
   DisableAutoOpenWizard: 1
   ShowSettings: 0

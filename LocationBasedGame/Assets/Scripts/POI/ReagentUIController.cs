@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using ItemN;
+using DatabaseN;
 
 public class ReagentUIController : MonoBehaviour
 {
@@ -58,7 +59,7 @@ public class ReagentUIController : MonoBehaviour
 
     private void AddItem(Item item)
     {
-        GameObject.Find("Inventory").GetComponent<Inventory>().AddItem(item.id);
+        GameObject.Find("DatabaseManager").GetComponent<DatabaseManager>().newItem(item);
     }
 
     private void DestroyButton(GameObject button)
@@ -71,7 +72,8 @@ public class ReagentUIController : MonoBehaviour
         }
     }
 
-    public void PlaySound() {
+    public void PlaySound()
+    {
         GameObject.Find("SoundController").GetComponent<SoundController>().playSound();
     }
 

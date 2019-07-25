@@ -11,7 +11,7 @@ namespace DatabaseN
 {
     public class DatabaseManager : MonoBehaviour
     {
-        public bool resetDatabaseFlag;
+        protected static bool resetDatabaseFlag;
         private string playerName;
 
         void Start()
@@ -22,8 +22,8 @@ namespace DatabaseN
             playerName = getPlayerNameFromDatabase();
             savegameDatabase.close();
 
-            //resetDatabaseFlag = true;
-            if (resetDatabaseFlag == true)
+            resetDatabaseFlag = false;
+            if (resetDatabaseFlag == true || playerName == "")
             {
                 resetDatabase();
             }
@@ -174,6 +174,7 @@ namespace DatabaseN
                                         reader[9].ToString(),
                                         reader[10].ToString());
             }
+            savegameDatabase.close();
             return savegame;
         }
     }

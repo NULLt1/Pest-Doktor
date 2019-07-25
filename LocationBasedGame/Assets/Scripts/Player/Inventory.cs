@@ -32,7 +32,9 @@ public class Inventory : MonoBehaviour
         }
         itemProvider = GameObject.FindGameObjectWithTag("ItemProvider").GetComponent<ItemProvider>();
         databaseManager = FindObjectOfType<DatabaseManager>();
-        addItemsFormSavegame();
+        if (databaseManager.getPlayerName() != ""){
+            addItemsFormSavegame();
+        }
     }
 
     private void addItemsFormSavegame()

@@ -47,7 +47,7 @@ public class RPCController : MonoBehaviourPun
     }
 
     [PunRPC]
-    void PlagueHealthRPC(int id, string location, PhotonMessageInfo info)
+    void PlagueHealthRPC(int id, PhotonMessageInfo info)
     {
         var plagueControllers = FindObjectsOfType<PlagueController>();
         foreach (PlagueController plagueController in plagueControllers)
@@ -96,6 +96,24 @@ public class RPCController : MonoBehaviourPun
             {
                 plagueController.decrementHealth();
                 ActualizePlagueHealth(id, plagueController.getHealth());
+            }
+        }
+    }
+
+    public void PlayerInsidePlagueName(int id, string name)
+    {
+        photonView.RPC("PlayerInsidePlagueName", RpcTarget.MasterClient, id, name);
+    }
+
+    [PunRPC]
+    void PlayerInsidePlagueName(int id, string name, PhotonMessageInfo info)
+    {
+        var plagueControllers = FindObjectsOfType<PlagueController>();
+        foreach (PlagueController plagueController in plagueControllers)
+        {
+            if (plagueController.getPlagueId() == id)
+            {
+                plagueController.AddPlayer(name);
             }
         }
     }
