@@ -115,7 +115,6 @@ namespace DatabaseN
         {
             SavegameDatabase savegameDatabase = new SavegameDatabase();
             savegameDatabase.incrementAmount(item.name);
-            Debug.Log(item.name);
         }
 
         public static List<Item> getAllItems()

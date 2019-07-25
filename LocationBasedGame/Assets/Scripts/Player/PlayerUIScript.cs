@@ -36,7 +36,6 @@ public class PlayerUIScript : MonoBehaviour
             playerUICanvas = GameObject.Find("PlayerUI").GetComponent<Canvas>();
             playerUIExitButton = GameObject.FindWithTag("Exit").GetComponent<Button>();
             playerUIExitButton.onClick.AddListener(() => togglePlayerUICanvas());
-            Debug.Log(playerUIExitButton);
         }
         playerUIReagentPrefab = Resources.Load<GameObject>("Assets/PlayerUIReagent");
         playerUICanvas.enabled = false;

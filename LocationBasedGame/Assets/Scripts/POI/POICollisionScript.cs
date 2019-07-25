@@ -17,12 +17,12 @@ public class POICollisionScript : MonoBehaviour
 
     void Update()
     {
-
+        collisionRing.transform.position = this.transform.position + new Vector3(0, 2, 0);
     }
 
     void OnCollisionStay(Collision collision)
     {
-        
+
         if (collision.gameObject.tag == "Player")
         {
             this.gameObject.tag = "Collision";
