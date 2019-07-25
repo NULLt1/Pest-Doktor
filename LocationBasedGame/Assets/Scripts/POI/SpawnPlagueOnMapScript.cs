@@ -27,8 +27,8 @@ public class SpawnPlagueOnMapScript : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(PhotonNetwork.IsConnected);
-        Debug.Log(PhotonNetwork.IsMasterClient);
+        //Debug.Log(PhotonNetwork.IsConnected);
+        //Debug.Log(PhotonNetwork.IsMasterClient);
 
         if (PhotonNetwork.IsMasterClient)
         {

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCollisionScript : MonoBehaviour
 {
-    private static Canvas reagentUI, seucheUI, mainUI;
+    private static Canvas reagentUI, plagueUI, mainUI;
     private Button enterButton;
     private ReagentController reagentController;
 
@@ -22,9 +22,9 @@ public class PlayerCollisionScript : MonoBehaviour
             reagentController = GameObject.Find("ReagentUI").GetComponent<ReagentController>();
         }
 
-        if (GameObject.Find("SeucheUI") != null)
+        if (GameObject.Find("PlagueUI") != null)
         {
-            seucheUI = GameObject.Find("SeucheUI").GetComponent<Canvas>();
+            plagueUI = GameObject.Find("PlagueUI").GetComponent<Canvas>();
         }
 
         if (GameObject.Find("MainUI") != null)
@@ -33,7 +33,7 @@ public class PlayerCollisionScript : MonoBehaviour
         }
 
         reagentUI.enabled = false;
-        seucheUI.enabled = false;
+        plagueUI.enabled = false;
     }
 
     void Update()
@@ -42,7 +42,7 @@ public class PlayerCollisionScript : MonoBehaviour
 
     void OnCollisionStay(Collision collision)
     {
-        if ((Input.GetMouseButtonDown(0) || Input.touchCount > 0) && reagentUI.enabled == false && seucheUI.enabled == false)
+        if ((Input.GetMouseButtonDown(0) || Input.touchCount > 0) && reagentUI.enabled == false && plagueUI.enabled == false)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -57,8 +57,9 @@ public class PlayerCollisionScript : MonoBehaviour
                         //Debug.Log("FIRE REAGENT");
                         toggleCanvas();
                     }
-                    if (hit.transform.gameObject.name == "Pestbrunnen(Clone)")
+                    if (hit.transform.gameObject.name == "Plague(Clone)")
                     {
+
                         //Debug.Log("FIRE SEUCHE");
                         toggleSeucheCanvas();
                     }
@@ -74,7 +75,7 @@ public class PlayerCollisionScript : MonoBehaviour
         {
             toggleCanvas();
         }
-        if (seucheUI.enabled)
+        if (plagueUI.enabled)
         {
             //Debug.Log("EXIT");
             toggleSeucheCanvas();
@@ -99,14 +100,14 @@ public class PlayerCollisionScript : MonoBehaviour
     public void toggleSeucheCanvas()
     {
         //Debug.Log("Toggle Canvas called on: " + seucheUI + ", Status: " + seucheUI.enabled);
-        if (seucheUI.enabled)
+        if (plagueUI.enabled)
         {
-            seucheUI.enabled = false;
+            plagueUI.enabled = false;
             mainUI.enabled = true;
         }
         else
         {
-            seucheUI.enabled = true;
+            plagueUI.enabled = true;
             mainUI.enabled = false;
         }
     }

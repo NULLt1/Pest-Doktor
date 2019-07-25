@@ -4221,7 +4221,7 @@ GameObject:
   - component: {fileID: 1491529432}
   - component: {fileID: 1491529431}
   m_Layer: 5
-  m_Name: SeucheUI
+  m_Name: PlagueUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
