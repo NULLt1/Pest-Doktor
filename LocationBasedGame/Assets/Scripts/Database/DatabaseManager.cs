@@ -11,15 +11,18 @@ namespace DatabaseN
 {
     public class DatabaseManager : MonoBehaviour
     {
-        protected static bool resetDatabaseFlag;
+        public bool resetDatabaseFlag;
+        private string playerName;
 
         void Start()
         {
             ItemDatabase itemDatabase = new ItemDatabase();
             itemDatabase.close();
             SavegameDatabase savegameDatabase = new SavegameDatabase();
+            playerName = getPlayerNameFromDatabase();
             savegameDatabase.close();
-            resetDatabaseFlag = false;
+
+            //resetDatabaseFlag = true;
             if (resetDatabaseFlag == true)
             {
                 resetDatabase();
@@ -30,6 +33,8 @@ namespace DatabaseN
         {
 
         }
+
+
 
         public bool playerNameExists()
         {
@@ -54,7 +59,7 @@ namespace DatabaseN
             savegameDatabase.close();
         }
 
-        public string getPlayerName()
+        public string getPlayerNameFromDatabase()
         {
             SavegameDatabase savegameDatabase = new SavegameDatabase();
             string name = "";
@@ -68,6 +73,11 @@ namespace DatabaseN
             }
             savegameDatabase.close();
             return name;
+        }
+
+        public string getPlayerName()
+        {
+            return playerName;
         }
 
         private void resetDatabase()
