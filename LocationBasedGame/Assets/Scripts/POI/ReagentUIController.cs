@@ -51,6 +51,7 @@ public class ReagentUIController : MonoBehaviour
         buttonGameobject.GetComponent<RectTransform>().sizeDelta = new Vector2(190, 190);
         buttonGameobject.transform.SetParent(GameObject.Find("ReagentUI").transform);
         buttonGameobject.transform.localPosition = buttonPosition[positionCounter++];
+        buttonGameobject.GetComponent<Button>().onClick.AddListener(() => PlaySound());
         buttonGameobject.GetComponent<Button>().onClick.AddListener(() => AddItem(item));
         buttonGameobject.GetComponent<Button>().onClick.AddListener(() => DestroyButton(buttonGameobject));
     }
@@ -68,6 +69,10 @@ public class ReagentUIController : MonoBehaviour
             randomizeAndHideReagent();
             GameObject.Find("Player").GetComponent<PlayerCollisionScript>().toggleReagentCanvas();
         }
+    }
+
+    public void PlaySound() {
+        GameObject.Find("SoundController").GetComponent<SoundController>().playSound();
     }
 
     private void randomizeAndHideReagent()

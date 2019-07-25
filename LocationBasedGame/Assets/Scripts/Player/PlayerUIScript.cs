@@ -10,12 +10,12 @@ public class PlayerUIScript : MonoBehaviour
     Vector2[] reagentPosition = new Vector2[6];
     int positionCounter = 0;
     private DatabaseManager databaseManager;
-    private GameObject playerUI;
-    private Canvas playerUICanvas;
+    private GameObject playerUI, playerUIReagentPrefab;
+    private Canvas playerUICanvas, mainUI;
     private Button playerUIExitButton;
     private ItemProvider itemProvider;
-    private GameObject playerUIReagentPrefab;
-
+    private Image secondPage;
+    private Text playerName;
     public List<Item> items = new List<Item>();
 
     void Start()
@@ -26,16 +26,22 @@ public class PlayerUIScript : MonoBehaviour
         reagentPosition[3] = new Vector2(-190, -585);
         reagentPosition[4] = new Vector2(0, -585);
         reagentPosition[5] = new Vector2(190, -585);
+
         databaseManager = FindObjectOfType<DatabaseManager>();
         itemProvider = FindObjectOfType<ItemProvider>();
         items = itemProvider.getItems();
         drawItemIcons();
+
         playerUI = GameObject.Find("PlayerUI");
+        mainUI = GameObject.Find("MainUI").GetComponent<Canvas>();
+        playerName = GameObject.Find("ProfileName").GetComponent<Text>();
+        secondPage = GameObject.Find("ProfileSecond").GetComponent<Image>();
+
+        playerName.text = databaseManager.getPlayerName();
+
         if (playerUI != null)
         {
             playerUICanvas = GameObject.Find("PlayerUI").GetComponent<Canvas>();
-            playerUIExitButton = GameObject.FindWithTag("Exit").GetComponent<Button>();
-            playerUIExitButton.onClick.AddListener(() => togglePlayerUICanvas());
         }
         playerUIReagentPrefab = Resources.Load<GameObject>("Assets/PlayerUIReagent");
         playerUICanvas.enabled = false;
@@ -60,6 +66,9 @@ public class PlayerUIScript : MonoBehaviour
         playerUIReagent.transform.SetParent(GameObject.Find("PlayerUI").transform);
     }
 
+    public void togglePageTwo() {
+        secondPage.enabled = !secondPage.enabled;
+    }
 
     public void togglePlayerUICanvas()
     {

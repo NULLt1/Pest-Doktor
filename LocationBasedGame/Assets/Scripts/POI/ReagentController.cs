@@ -9,6 +9,7 @@ public class ReagentController : MonoBehaviour
     Vector2[] buttonPosition = new Vector2[3];
     int positionCounter = 0;
     private ItemProvider itemProvider;
+    private SoundController soundController;
 
     void Start()
     {
@@ -51,6 +52,8 @@ public class ReagentController : MonoBehaviour
         buttonGameobject.GetComponent<RectTransform>().sizeDelta = new Vector2(190, 190);
         buttonGameobject.transform.SetParent(GameObject.Find("ReagentUI").transform);
         buttonGameobject.transform.localPosition = buttonPosition[positionCounter++];
+        buttonGameobject.GetComponent<Button>().onClick.AddListener(() => PlaySound());
+        buttonGameobject.GetComponent<Button>().onClick.AddListener(() => DebugTester());
         buttonGameobject.GetComponent<Button>().onClick.AddListener(() => AddItem(item));
         buttonGameobject.GetComponent<Button>().onClick.AddListener(() => DestroyButton(buttonGameobject));
     }
@@ -68,6 +71,15 @@ public class ReagentController : MonoBehaviour
             randomizeAndHideReagent();
             GameObject.Find("Player").GetComponent<PlayerCollisionScript>().toggleReagentCanvas();
         }
+    }
+
+    public void DebugTester() {
+        Debug.Log("TEEEEST");
+    }
+
+    private void PlaySound() {
+        Debug.Log("PlaySound1");
+        GameObject.Find("SoundController").GetComponent<SoundController>().playSound();
     }
 
     private void randomizeAndHideReagent()

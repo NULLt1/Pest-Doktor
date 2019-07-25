@@ -97,11 +97,13 @@ public class PlayerCollisionScript : MonoBehaviour
         {
             plagueUI.enabled = false;
             mainUI.enabled = true;
+            GameObject.Find("PlagueUI").GetComponent<AudioSource>().Stop();
         }
         else
         {
             plagueUI.enabled = true;
             mainUI.enabled = false;
+            GameObject.Find("PlagueUI").GetComponent<AudioSource>().Play();
         }
     }
 }
