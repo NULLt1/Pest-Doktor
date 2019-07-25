@@ -2,22 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DatabaseN;
 
 public class PlagueController : MonoBehaviour
 {
     private Canvas seucheUI;
     private Image healthBar, infektBar, mainInfektBar;
+    public GameObject player1, player2, player3, player4;
+    private DatabaseManager databaseManager;
+    private Text playerName;
     public float health, infektion, healthFaktor, infektFaktor, infektHealFaktor;
     // Start is called before the first frame update
     void Start()
     {
+        databaseManager = GameObject.Find("DatabaseManager").GetComponent<DatabaseManager>();
         if (GameObject.Find("SeucheUI") != null)
         {
             seucheUI = GameObject.Find("SeucheUI").GetComponent<Canvas>();
             healthBar = GameObject.Find("Bar").GetComponent<Image>();
             infektBar = GameObject.Find("InfektionBar").GetComponent<Image>();
             mainInfektBar = GameObject.Find("MainInfektionBar").GetComponent<Image>();
+            playerName = GameObject.Find("PlayerName").GetComponent<Text>();
         }
+
+        playerName.text = databaseManager.getPlayerName();
+
+        // PROTOTYP IMPLEMENTIERUNG, BEI NETWORK ÄNDERN!
+        player2.SetActive(false);
+        player3.SetActive(false);
+        player4.SetActive(false);
 
         health = 100;
         infektion = 0;

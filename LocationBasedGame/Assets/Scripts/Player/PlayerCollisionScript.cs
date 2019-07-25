@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCollisionScript : MonoBehaviour
 {
-    private static Canvas reagentUI;
-    private static Canvas seucheUI;
+    private static Canvas reagentUI, seucheUI, mainUI;
     private Button enterButton;
     private ReagentController reagentController;
 
@@ -26,8 +25,13 @@ public class PlayerCollisionScript : MonoBehaviour
         if (GameObject.Find("SeucheUI") != null)
         {
             seucheUI = GameObject.Find("SeucheUI").GetComponent<Canvas>();
-            //reagentButtonSpawn = GameObject.Find("SeucheUI").GetComponent<ReagentButtonSpawn>();
         }
+
+        if (GameObject.Find("MainUI") != null)
+        {
+            mainUI = GameObject.Find("MainUI").GetComponent<Canvas>();
+        }
+
         reagentUI.enabled = false;
         seucheUI.enabled = false;
     }
@@ -82,11 +86,13 @@ public class PlayerCollisionScript : MonoBehaviour
         if (reagentUI.enabled)
         {
             reagentUI.enabled = false;
+            mainUI.enabled = true;
         }
         else
         {
             reagentController.spawnReagentButtons();
             reagentUI.enabled = true;
+            mainUI.enabled = false;
         }
     }
 
@@ -96,10 +102,12 @@ public class PlayerCollisionScript : MonoBehaviour
         if (seucheUI.enabled)
         {
             seucheUI.enabled = false;
+            mainUI.enabled = true;
         }
         else
         {
             seucheUI.enabled = true;
+            mainUI.enabled = false;
         }
     }
 

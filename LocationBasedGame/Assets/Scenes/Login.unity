@@ -287,7 +287,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 376.9}
-  m_SizeDelta: {x: 500, y: 70}
+  m_SizeDelta: {x: 700, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &98485281
 MonoBehaviour:
@@ -630,7 +630,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: d2087ba889037a64a81b27afabdfa173, type: 3}
     m_FontSize: 30
     m_FontStyle: 2
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 4
@@ -979,7 +979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2a77dee5d17b445bcf1a329e022d8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetDatabaseFlag: 1
+  resetDatabaseFlag: 0
 --- !u!4 &1289552598
 Transform:
   m_ObjectHideFlags: 0
@@ -1464,7 +1464,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: d2087ba889037a64a81b27afabdfa173, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 4

@@ -9,19 +9,12 @@ namespace LocationBasedGame
 {
     public class NetworkController : MonoBehaviourPunCallbacks
     {
-        public Button ButtonConnect;
-        public Button ButtonJoin, ButtonLos;
-        public Image TextConnected;
-        public Image TextJoiningRoom;
-        public Image NameOverlay;
+        public Button ButtonConnect, ButtonJoin, ButtonLos;
+        public Image TextConnected, TextJoiningRoom, NameOverlay;
         private Text welcomeText;
         private DatabaseManager databaseManager;
         private InputField nameInput;
-        private string playerName;
-        private bool firstLogin, inputButton;
-
-        private bool connectingToMaster;
-        private bool joiningRoom;
+        private bool firstLogin, inputButton, connectingToMaster, joiningRoom;
 
         void Start()
         {
@@ -65,8 +58,6 @@ namespace LocationBasedGame
 
             if (TextJoiningRoom != null)
                 TextJoiningRoom.gameObject.SetActive(joiningRoom);
-
-            //playerName = nameInput.text;
         }
 
         public void AcceptName()
