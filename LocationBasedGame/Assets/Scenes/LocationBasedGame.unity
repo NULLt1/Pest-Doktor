@@ -2322,6 +2322,11 @@ MonoBehaviour:
   map: {fileID: 114105500982122791}
   locationStrings:
   - 48.04993638,8.21077287
+  - 48.05007982,8.21162224
+  - 48.05036311,8.21009696
+  - 48.04989334,8.20987165
+  - 48.04942581,8.21099818
+  - 47.44209013,7.58909047
   spawnScale: 2
   markerPrefab: {fileID: 1209540745484720, guid: 2650c4cd8780cd641b9fc4aab1dc8b02,
     type: 3}
@@ -3470,6 +3475,7 @@ MonoBehaviour:
   map: {fileID: 114105500982122791}
   locationStrings:
   - 48.04986466,8.21115106
+  - 47.44200306,7.58896708
   spawnScale: 8
   markerPrefab: {fileID: 3966836110603149976, guid: 7d8bc001d8011d247a03a74d5d14b41e,
     type: 3}
@@ -4329,7 +4335,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 0e2176213217c7844a7699e605421224, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -7036,7 +7042,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: a60528a456100dd42b67d3e002e0b00f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c0bea15d22728974e9b1fdbc3f51ffb9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7533,7 +7539,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: a60528a456100dd42b67d3e002e0b00f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c0bea15d22728974e9b1fdbc3f51ffb9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
