@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
-// 0t1
+// NULLt1
 public class RPCController : MonoBehaviourPun
 {
     private string[] locationStrings;
@@ -102,7 +102,7 @@ public class RPCController : MonoBehaviourPun
 
     public void PlayerInsidePlagueName(int id, string name)
     {
-        photonView.RPC("PlayerInsidePlagueName", RpcTarget.MasterClient, id, name);
+        photonView.RPC("PlayerInsidePlagueName", RpcTarget.All, id, name);
     }
 
     [PunRPC]

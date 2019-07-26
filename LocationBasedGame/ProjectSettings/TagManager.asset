@@ -11,6 +11,7 @@ TagManager:
   - Seuche
   - ItemProvider
   - Exit
+  - PlayerFrameUI
   layers:
   - Default
   - TransparentFX

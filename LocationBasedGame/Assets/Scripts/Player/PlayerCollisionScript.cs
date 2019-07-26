@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-// 0t1
+// NULLt1
 public class PlayerCollisionScript : MonoBehaviour
 {
     private static Canvas reagentUI, plagueUI, mainUI;

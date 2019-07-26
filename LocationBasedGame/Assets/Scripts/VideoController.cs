@@ -11,6 +11,7 @@ public class VideoController : MonoBehaviour
     {
         videoPlayer = GameObject.Find("VideoPlayer").GetComponent<VideoPlayer>();
         GameObject.Find("VideoPlayer").SetActive(true);
+        videoPlayer.Play();
     }
 
     // Update is called once per frame

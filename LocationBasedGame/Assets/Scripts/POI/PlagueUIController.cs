@@ -5,8 +5,9 @@ using UnityEngine.UI;
 using DatabaseN;
 public class PlagueUIController : MonoBehaviour
 {
+    Vector2[] playerFramePosition = new Vector2[3];
+    int positionCounter = 0;
     private RPCController rpCController;
-    private GameObject playerFramePerfab;
     private Canvas plagueUI;
     private Image healthBar, infektBar, mainInfektBar;
     public GameObject player1, player2, player3, player4;
@@ -14,16 +15,19 @@ public class PlagueUIController : MonoBehaviour
     private Text playerName;
     private bool playerInsidePlagueFlag;
     private List<string> playerList;
+    bool setPlayersFlag;
     public float health, infektion, healthFaktor, infektFaktor, infektHealFaktor;
     // Start is called before the first frame update
     void Start()
     {
+        playerFramePosition[0] = new Vector2(-125, -150);
+        playerFramePosition[1] = new Vector2(125, -150);
+        playerFramePosition[2] = new Vector2(375, -150);
         playerInsidePlagueFlag = true;
-
+        setPlayersFlag = true;
         databaseManager = GameObject.Find("DatabaseManager").GetComponent<DatabaseManager>();
         if (GameObject.Find("PlagueUI") != null)
         {
-            playerFramePerfab = Resources.Load<GameObject>("/Prefabs/PlayerFramePrefab");
             rpCController = GameObject.Find("PlagueSpawner").GetComponent<RPCController>();
             plagueUI = GameObject.Find("PlagueUI").GetComponent<Canvas>();
             healthBar = GameObject.Find("Bar").GetComponent<Image>();
@@ -50,13 +54,13 @@ public class PlagueUIController : MonoBehaviour
     {
         if (plagueUI.enabled)
         {
-            health = GameObject.FindWithTag("Collision").GetComponent<PlagueController>().getHealth();
 
-            playerList = GameObject.FindWithTag("Collision").GetComponent<PlagueController>().getPlayerList();
-            foreach (string name in playerList)
+            health = GameObject.FindWithTag("Collision").GetComponent<PlagueController>().getHealth();
+            if (setPlayersFlag == true)
             {
-                // DIE LETZTE ZEILE CODE!
+                StartCoroutine(UpdatePlayers());
             }
+
             if (playerInsidePlagueFlag == true)
             {
                 playerInsidePlagueFlag = false;
@@ -90,6 +94,33 @@ public class PlagueUIController : MonoBehaviour
 
         }
 
+    }
+
+    IEnumerator UpdatePlayers()
+    {
+        setPlayersFlag = false;
+        GameObject[] existingPlayerFrames = GameObject.FindGameObjectsWithTag("PlayerFrameUI");
+
+        foreach (GameObject existingPlayerFrame in existingPlayerFrames)
+        {
+            Destroy(existingPlayerFrame);
+        }
+        playerList = GameObject.FindWithTag("Collision").GetComponent<PlagueController>().getPlayerList();
+        foreach (string name in playerList)
+        {
+            Debug.Log(name);
+            if (name != databaseManager.getPlayerName())
+            {
+                GameObject playerFrame = Instantiate(Resources.Load("PlayerFramePrefab") as GameObject);
+                playerFrame.transform.GetChild(1).GetComponent<Text>().text = name;
+                playerFrame.transform.SetParent(GameObject.Find("PlagueUI").transform);
+                playerFrame.transform.localPosition = playerFramePosition[positionCounter++];
+                playerFrame.transform.localScale = new Vector3(1, 1, 1);
+            }
+            positionCounter = 0;
+        }
+        yield return new WaitForSeconds(1f);
+        setPlayersFlag = true;
     }
 
     private void resetAndHidePlague()

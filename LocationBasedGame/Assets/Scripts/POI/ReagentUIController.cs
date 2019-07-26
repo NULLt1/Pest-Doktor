@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using ItemN;
 using DatabaseN;
-
+//NULLt1
 public class ReagentUIController : MonoBehaviour
 {
     Vector2[] buttonPosition = new Vector2[3];
@@ -82,10 +82,10 @@ public class ReagentUIController : MonoBehaviour
         GameObject reagent = GameObject.FindWithTag("Collision");
         reagent.SetActive(false);
         reagent.GetComponent<ReagentRandomizer>().reagentRandomizerTrigger();
-        StartCoroutine(LateCall(reagent));
+        StartCoroutine(RespawnReagent(reagent));
     }
 
-    IEnumerator LateCall(GameObject reagent)
+    IEnumerator RespawnReagent(GameObject reagent)
     {
         yield return new WaitForSeconds(30f);
         reagent.SetActive(true);

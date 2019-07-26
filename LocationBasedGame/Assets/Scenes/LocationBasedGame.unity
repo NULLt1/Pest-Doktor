@@ -206,8 +206,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8030620}
-  m_LocalRotation: {x: 0.6238505, y: -0.000002868503, z: 0.0000023707069, w: 0.78154373}
-  m_LocalPosition: {x: -18.677399, y: 122.25726, z: -3.353428}
+  m_LocalRotation: {x: 0.64195377, y: -0.000002812288, z: 0.000002437129, w: 0.76674336}
+  m_LocalPosition: {x: -18.677399, y: 152.25726, z: -3.353428}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1171,7 +1171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 110, z: -25}
+  m_FollowOffset: {x: 0, y: 140, z: -25}
   m_XDamping: 0
   m_YDamping: 0
   m_ZDamping: 0
@@ -2321,7 +2321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 114105500982122791}
   locationStrings:
-  - 48.04993638,8.21077287
+  - 48.04986466,8.21096063
   - 48.05007982,8.21162224
   - 48.05036311,8.21009696
   - 48.04989334,8.20987165
@@ -3474,8 +3474,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 114105500982122791}
   locationStrings:
-  - 48.04986466,8.21115106
+  - 48.05001527,8.21048856
   - 47.44200306,7.58896708
+  - 48.04968535,8.21138978
   spawnScale: 8
   markerPrefab: {fileID: 3966836110603149976, guid: 7d8bc001d8011d247a03a74d5d14b41e,
     type: 3}
@@ -4255,8 +4256,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1886754371}
-  m_LocalRotation: {x: 0.6238505, y: -0.000002868503, z: 0.0000023707069, w: 0.78154373}
-  m_LocalPosition: {x: -18.677399, y: 122.25726, z: -3.353428}
+  m_LocalRotation: {x: 0.64195377, y: -0.000002812288, z: 0.000002437129, w: 0.76674336}
+  m_LocalPosition: {x: -18.677399, y: 152.25726, z: -3.353428}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 428993202}
@@ -4803,7 +4804,7 @@ MonoBehaviour:
         isActive: 1
         layerSource:
           Name: Streets
-          Id: mapbox://styles/nullt1/cjyg3ol1b03f91docix2had25
+          Id: mapbox://styles/nullt1/cjyjqt1gz08wf1cpcd8f9p0zc
           Modified: 
           UserName: 
       rasterOptions:

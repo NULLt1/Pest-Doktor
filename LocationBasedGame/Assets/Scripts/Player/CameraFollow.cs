@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-// 0t1
+// NULLt1
 public class CameraFollow : MonoBehaviour
 {
     public GameObject tPlayer;

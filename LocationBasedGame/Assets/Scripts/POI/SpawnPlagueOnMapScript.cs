@@ -7,7 +7,7 @@ using Mapbox.Unity.Utilities;
 using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
-// 0t1
+// NULLt1
 public class SpawnPlagueOnMapScript : MonoBehaviour
 {
     [SerializeField]

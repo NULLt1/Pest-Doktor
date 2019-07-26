@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// 0t1
+// NULLt1
 [System.Serializable]
 public class PlagueAttribute
 {

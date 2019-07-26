@@ -1,7 +1,7 @@
 ﻿using Photon.Pun;
 using UnityEngine.SceneManagement;
 using Photon.Realtime;
-// 0t1
+// NULLt1
 namespace LocationBasedGame
 {
     public class GameController : MonoBehaviourPunCallbacks

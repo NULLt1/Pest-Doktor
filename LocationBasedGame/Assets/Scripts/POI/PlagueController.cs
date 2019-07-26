@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DatabaseN;
-// 0t1
+// NULLt1
 public class PlagueController : MonoBehaviour
 {
     private List<string> playerList;

@@ -1059,7 +1059,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2a77dee5d17b445bcf1a329e022d8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetDatabaseFlag: 0
 --- !u!4 &1289552598
 Transform:
   m_ObjectHideFlags: 0
@@ -1429,7 +1428,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1751382992
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1533,7 +1532,7 @@ VideoPlayer:
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: _MainTex
-  m_RenderMode: 2
+  m_RenderMode: 4
   m_AspectRatio: 2
   m_DataSource: 0
   m_PlaybackSpeed: 1
@@ -1546,7 +1545,7 @@ VideoPlayer:
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_SkipOnDrop: 0
   m_Looping: 0
   m_WaitForFirstFrame: 0
