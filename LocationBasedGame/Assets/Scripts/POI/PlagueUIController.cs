@@ -56,10 +56,28 @@ public class PlagueUIController : MonoBehaviour
         {
 
             health = GameObject.FindWithTag("Collision").GetComponent<PlagueController>().getHealth();
-            if (setPlayersFlag == true)
+
+            GameObject[] existingPlayerFrames = GameObject.FindGameObjectsWithTag("PlayerFrameUI");
+
+            foreach (GameObject existingPlayerFrame in existingPlayerFrames)
             {
-                StartCoroutine(UpdatePlayers());
+                Destroy(existingPlayerFrame);
             }
+            playerList = GameObject.FindWithTag("Collision").GetComponent<PlagueController>().getPlayerList();
+            foreach (string name in playerList)
+            {
+                Debug.Log(name);
+                if (name != databaseManager.getPlayerName())
+                {
+                    GameObject playerFrame = Instantiate(Resources.Load("PlayerFramePrefab") as GameObject);
+                    playerFrame.transform.GetChild(1).GetComponent<Text>().text = name;
+                    playerFrame.transform.SetParent(GameObject.Find("PlagueUI").transform);
+                    playerFrame.transform.localPosition = playerFramePosition[positionCounter++];
+                    playerFrame.transform.localScale = new Vector3(1, 1, 1);
+                }
+                positionCounter = 0;
+            }
+
 
             if (playerInsidePlagueFlag == true)
             {
@@ -94,33 +112,6 @@ public class PlagueUIController : MonoBehaviour
 
         }
 
-    }
-
-    IEnumerator UpdatePlayers()
-    {
-        setPlayersFlag = false;
-        GameObject[] existingPlayerFrames = GameObject.FindGameObjectsWithTag("PlayerFrameUI");
-
-        foreach (GameObject existingPlayerFrame in existingPlayerFrames)
-        {
-            Destroy(existingPlayerFrame);
-        }
-        playerList = GameObject.FindWithTag("Collision").GetComponent<PlagueController>().getPlayerList();
-        foreach (string name in playerList)
-        {
-            Debug.Log(name);
-            if (name != databaseManager.getPlayerName())
-            {
-                GameObject playerFrame = Instantiate(Resources.Load("PlayerFramePrefab") as GameObject);
-                playerFrame.transform.GetChild(1).GetComponent<Text>().text = name;
-                playerFrame.transform.SetParent(GameObject.Find("PlagueUI").transform);
-                playerFrame.transform.localPosition = playerFramePosition[positionCounter++];
-                playerFrame.transform.localScale = new Vector3(1, 1, 1);
-            }
-            positionCounter = 0;
-        }
-        yield return new WaitForSeconds(1f);
-        setPlayersFlag = true;
     }
 
     private void resetAndHidePlague()
